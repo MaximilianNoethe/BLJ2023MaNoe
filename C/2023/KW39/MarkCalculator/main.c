@@ -9,52 +9,53 @@ int main(int argc, char **argv)
     printf("-----------------------\n");
     printf("Average Mark Calculator\n");
     printf("-----------------------\n");
+    printf("Please enter valid marks to get your average mark: \n");
 
     float marks[NUM_MARKS];
     int length = sizeof(marks) / sizeof(float);
 
+    printf("%d", length);
+
     float sum = 0;
 
-    if (NUM_MARKS < 6 || NUM_MARKS > 1)
+    for (int i = 0; i < length; i++)
     {
-        printf("Enter a valid mark please!");
-    }
-    else
-    {
+        scanf("%f", &marks[i]);
+        sum += marks[i];
 
-        for (int i = 0; i < length; ++i)
+        if (marks[i] > 6 || marks[i] < 1)
         {
-            scanf("%f", &marks[i]);
-            sum += marks[i];
+            printf("Invalid mark!");
+            break;
         }
-
-        // printf("\n%f", sum); -> Addition von allen Zahlen
-        // printf("\n%f", marks[0]);
-
-        /*
-         * TODO - Read as many marks as defined in NUM_MARKS.
-         *      - Save read marks in an array of length NUM_MARKS.
-         */
-
-        printf("\n-----------------------\n");
-
-        // TODO - Calculate and store the sum of all marks.
-
-        //  TODO - Calculate and print the average mark.
-
-        printf("Here is your average mark: \n");
-
-        float AvgMark = sum / length;
-        printf("%.2f", AvgMark);
-
-        /*
-         * TODO - Extra tasks, implement only after completing all previous TODOs.
-         *      - Round the calculated average to 2 decimal places (output only). [x]
-         *      - While inputting, only allow values between 1.0 and 6.0. []
-         *      - For every mark, input a weight and calculate the average accordingly. []
-         *      - Allow for the manipulation of individual marks, using the index. []
-         */
-
-        return (EXIT_SUCCESS);
     }
+
+    // printf("\n%f", sum); -> Addition von allen Zahlen
+    // printf("\n%f", marks[0]);
+
+    /*
+     * TODO - Read as many marks as defined in NUM_MARKS.
+     *      - Save read marks in an array of length NUM_MARKS.
+     */
+
+    printf("\n-----------------------\n");
+
+    // TODO - Calculate and store the sum of all marks.
+
+    //  TODO - Calculate and print the average mark.
+
+    printf("Here is your average mark: \n");
+
+    float AvgMark = sum / length;
+    printf("%.2f", AvgMark);
+
+    /*
+     * TODO - Extra tasks, implement only after completing all previous TODOs.
+     *      - Round the calculated average to 2 decimal places (output only). [x]
+     *      - While inputting, only allow values between 1.0 and 6.0. [x]
+     *      - For every mark, input a weight and calculate the average accordingly. []
+     *      - Allow for the manipulation of individual marks, using the index. []
+     */
+
+    return (EXIT_SUCCESS);
 }
