@@ -8,7 +8,6 @@ void sort(int numbers[], int length)
         for (int p = 0; p < length - 1; p++)
         {
             int temp = 0;
-            
 
             if (numbers[p] > numbers[p + 1])
             {
@@ -16,7 +15,6 @@ void sort(int numbers[], int length)
                 numbers[p] = numbers[p + 1];
                 numbers[p + 1] = temp;
             }
-        
         }
     }
 }
@@ -28,11 +26,10 @@ int main()
 
     sort(numbers, length);
 
-    printf("%d, ", numbers[0]);
-    printf("%d, ", numbers[1]);
-    printf("%d, ", numbers[2]);
-    printf("%d, ", numbers[3]);
-    printf("%d", numbers[4]);
+    for (int o = 0; o < length; o++)
+    {
+        printf("%d, ", numbers[o]);
+    }
 
     return 0;
 }
