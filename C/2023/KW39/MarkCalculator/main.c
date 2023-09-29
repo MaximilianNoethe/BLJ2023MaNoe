@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     float marks[NUM_MARKS];
     int length = sizeof(marks) / sizeof(float);
 
-    printf("%d", length);
+    //printf("%d", length);
 
     float sum = 0;
 
