@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Probezeitbericht</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <h3>Probezeitbericht</h3>
+    Lernende/r: <input type="text" /><br />
+    Lehrberuf:
+    <select name="Lehrberuf">
+      <option value="applikationsentwicklerIn">ApplikationsentwicklerIn</option>
+      <option value="platformentwicklerIn">PlatformentwicklerIn</option>
+      <option value="mediamatikerIn">MediamatikerIn</option>
+    </select>
+
+    <fieldset>
+      <legend>Berufsmaturität</legend>
+      <input type="radio" />mit BMS <input type="radio" />ohne BMS<br />
+    </fieldset>
+    Lehrbeginn: <input type="date" /><br />
+    Breufsbildner/in: <input type="text" /><br />
+    <h3>Gesamteindruck</h3>
+    <textarea name="Gesamteindruck" rows="5" cols="25"></textarea><br />
+
+    <h3>Beurteilung</h3>
+    <hr />
+    <h4>Fachkompetenzen</h4>
+    Fertigkeiten, Kenntnisse, Quantität, Qualität etc.<br />
+    <input type="checkbox" name="sehr gut" /> sehr gut<br />
+    <input type="checkbox" name="gut" /> gut<br />
+    <input type="checkbox" name="genügend" /> genügend<br />
+    <input type="checkbox" name="ungenügend" /> ungenügend<br />
+
+    <hr />
+
+    <h4>Methodenkompetenz</h4>
+    Lernfähigkeit, Arbeitsmethodik, Arbeitssicherheit, Kreativität etc.<br />
+    <input type="checkbox" name="sehr gut" /> sehr gut<br />
+    <input type="checkbox" name="gut" /> gut<br />
+    <input type="checkbox" name="genügend" /> genügend<br />
+    <input type="checkbox" name="ungenügend" /> ungenügend<br />
+
+    <hr />
+
+    <h4>Sozialkompetenz</h4>
+    Teamfähigkeit, Firmenbezug, umweltgerechtes Verhalten etc.<br />
+    <input type="checkbox" name="sehr gut" /> sehr gut<br />
+    <input type="checkbox" name="gut" /> gut<br />
+    <input type="checkbox" name="genügend" /> genügend<br />
+    <input type="checkbox" name="ungenügend" /> ungenügend<br />
+
+    <hr />
+
+    <h4>Selbstkompetenz</h4>
+    Selbstständigkeit, Leistungsbereitschaft, Flexibilität etc<br />
+    <input type="checkbox" name="sehr gut" /> sehr gut<br />
+    <input type="checkbox" name="gut" /> gut<br />
+    <input type="checkbox" name="genügend" /> genügend<br />
+    <input type="checkbox" name="ungenügend" /> ungenügend<br />
+
+    <hr />
+
+    <h3>Fazit</h3>
+    Probezeit:
+    <select name="Probezeit">
+      <option value="bestanden">bestanden</option>
+      <option value="verlängert">verlängert</option>
+      <option value="nicht bestanden">nicht bestanden</option>
+    </select>
+
+    <h3>Bemerkungen</h3>
+    <textarea name="Bemerkungen" rows="5" cols="25"></textarea><br />
+
+    <button type="speichern">speichern</button>
+  </body>
+</html>

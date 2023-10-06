@@ -19,17 +19,40 @@ void sort(int numbers[], int length)
     }
 }
 
+void BinarySearch(int numbers[])
+{
+    int x = 5;
+
+    int min = numbers[0];
+    int max = numbers[4];
+
+    int mid = (max + min) / 2;
+
+    if (mid < x)
+    {
+        mid = min;
+    }
+    else
+    {
+        mid = max;
+    }
+
+    printf("%d", mid);
+}
+
 int main()
 {
-    int numbers[] = {62, -1234555, -96, 0, 32};
+    int numbers[] = {8, 5, -6, 0, 32};
     int length = sizeof(numbers) / sizeof(int);
 
     sort(numbers, length);
 
     for (int o = 0; o < length; o++)
     {
-        printf("%d, ", numbers[o]);
+        printf("\n%d\n", numbers[o]);
     }
+
+    BinarySearch(numbers);
 
     return 0;
 }

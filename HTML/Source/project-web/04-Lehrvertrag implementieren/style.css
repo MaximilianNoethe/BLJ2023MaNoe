@@ -1,0 +1,30 @@
+.num{
+
+}
+table {
+  background-color: #b2d0dd;
+}
+
+.field {
+  padding: 6px;
+  width: 30px;
+  height: 20px;
+}
+.closedfields {
+  height: 20px;
+  display: flex;
+  background-color: white;
+  gap: 4px;
+  font-size: x-small;
+  align-items: end;
+}
+
+input{
+    /*border-left: #ffffff;
+    border-right: #ffffff;*/
+    p
+}
+
+#text {
+  color: rgba(0, 140, 255, 0.401);
+}
