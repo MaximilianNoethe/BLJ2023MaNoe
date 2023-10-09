@@ -1,43 +1,54 @@
 .num {
 }
-/*
+
 table {
-  background-color: #b2d0dd;
+  border-spacing: 0px;
 }
-*/
+
+.Ferienanspruch {
+  font-size: smaller;
+  vertical-align: bottom;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 30px;
+}
 
 .closedfields {
   display: flex;
   background-color: white;
   gap: 2px;
-  font-size: x-small;
+  font-size: smaller;
   align-items: end;
   margin: 5px;
-} 
+  color: #2b7da1;
+}
 
 .blue-bg {
-    background-color: #b2d0dd;
-    
+  background-color: #b2d0dd;
+  color: #2b7da1;
+  vertical-align: bottom;
 }
 input {
-    border-left: #ffffff;
-    border: 0px solid white;
-    height: 30px;
-    padding: 3px;
-    font-size: 10px;
-   
-  
-}
-.punkt{
-    background: #ffffff;
-    padding: 3px;
-    margin: 3px;
-    border: 10px solid #ffffff;
-}
-#punkt{
-  background: #ffffff;
+  border-left: #ffffff;
+  border: 0px solid white;
+  height: 30px;
   padding: 3px;
-  margin: 3px;
-  border: 10px solid #ffffff;
+  font-size: 10px;
+}
 
+#punkt {
+  background: #ffffff;
+  vertical-align: bottom;
+  padding-bottom: 3px;
+  padding-right: 15px;
+  color: #2b7da1;
+}
+
+.typeInput{
+  color: #2b7da1;
+  text-align: 
+}
+
+input:hover{
+  color: black;
 }
