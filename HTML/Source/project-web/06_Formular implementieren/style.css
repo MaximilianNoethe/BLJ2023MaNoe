@@ -1,0 +1,11 @@
+body{
+    max-width: 40%;
+}
+
+.row {
+    height: 3em;
+}
+
+.date-w {
+    width: 100%;
+}

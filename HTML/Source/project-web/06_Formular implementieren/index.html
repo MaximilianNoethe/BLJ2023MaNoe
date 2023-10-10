@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular implementieren</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Kontakt</h1>
+      <div class="row">
+        <div class="col-lg-2">Anrede:</div>
+        <div class="col-lg-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio1"
+              value="option1"
+            />
+            <label class="form-check-label" for="inlineRadio1">Herr</label>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio2"
+              value="option2"
+            />
+            <label class="form-check-label" for="inlineRadio2">Frau</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">Vorname:</div>
+        <div class="col-lg-8">
+          <div class="input-group flex-nowrap">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Max"
+              aria-label="Max"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">Name:</div>
+        <div class="col-lg-8">
+          <div class="input-group flex-nowrap">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Muster"
+              aria-label="Muster"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">Datum:</div>
+        <div class="col-lg-8"><input type="date" class="date-w" /></div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">Strasse:</div>
+        <div class="col-lg-8">
+          <div class="input-group flex-nowrap">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Musterstrasse 12"
+              aria-label="Musterstrasse 12"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">PLZ:</div>
+        <div class="col-lg-2">
+          <div class="input-group flex-nowrap">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="8320"
+              aria-label="8320"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+        <div class="col-lg-2">Ort:</div>
+        <div class="col-lg-4">
+          <div class="input-group flex-nowrap">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Fehraldorf"
+              aria-label="Fehraldorf"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2">Land:</div>
+        <div class="col-lg-8"></div>
+      </div>
+    </div>
+  </body>
+</html>
