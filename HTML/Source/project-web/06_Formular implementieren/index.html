@@ -132,24 +132,62 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-2">Land:</div>
-        <div class="col-lg-8">
-          <div class="dropdown" class="land-w">
-            
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              data-toggle="dropdown"
-            >
-              Wählen Sie ein Land aus <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">HTML</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">JavaScript</a></li>
-            </ul>
-          </div>
-        </div>
+        <div class="col-lg-2"><label for="country">Land:</label></div>
+        <div class="col-lg-8"><select id="country" name="country" class="land-w">
+
+          <option value="" disabled selected>Bitte wählen Sie ein Land</option>
+    
+        </select>
+    
+      </div>
+    
+    </div>
+    
+     
+    
+    <script>
+    
+      const apiUrl = 'https://restcountries.com/v3.1/all';
+    
+     
+    
+      async function fetchCountries() {
+    
+        const response = await fetch(apiUrl);
+    
+        const countries = await response.json();
+    
+        return countries;
+    
+      }
+    
+     
+    
+      const select = document.getElementById('country');
+    
+     
+    
+      fetchCountries()
+    
+        .then(countries => {
+    
+          countries.forEach(country => {
+    
+            const option = document.createElement('option');
+    
+            option.value = country.name.common;  
+    
+            option.text = country.name.common;  
+    
+            select.appendChild(option);
+    
+          });
+    
+        })
+    
+        .catch(error => console.error('Fehler beim Laden der Länder:', error));
+    
+    </script></div>
       </div>
     </div>
   </body>
