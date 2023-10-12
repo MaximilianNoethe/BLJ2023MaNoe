@@ -1,5 +1,4 @@
 nav {
-  
   background-image: linear-gradient(rgb(58, 136, 5), rgb(58, 136, 5));
 }
 
@@ -14,6 +13,19 @@ body {
     
         */
 }
-.container{
+.container {
   margin: 10px 6% 6%;
+}
+h1 {
+  text-align: center;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid rgb(58, 136, 5);
+}
+
+p{
+  text-align: center;
 }
