@@ -1,5 +1,6 @@
 nav {
-  background-color: rgb(42, 126, 3);
+  
+  background-image: linear-gradient(rgb(58, 136, 5), rgb(58, 136, 5));
 }
 
 a {
@@ -12,4 +13,7 @@ body {
         background-image: linear-gradient( rgb(47, 0, 255), rgb(255, 0, 106));
     
         */
+}
+.container{
+  margin: 10px 6% 6%;
 }
