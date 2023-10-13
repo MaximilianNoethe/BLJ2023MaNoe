@@ -1,5 +1,5 @@
 nav {
-  background-image: linear-gradient(rgb(58, 136, 5), rgb(58, 136, 5));
+  /*background-image: linear-gradient (rgb(58, 136, 5), rgb(58, 136, 5));*/
 }
 
 a {
@@ -7,15 +7,11 @@ a {
 }
 
 body {
-  background-color: hotpink;
+  background-color: rgba(39, 6, 116, 0.493);
 }
 
 .card {
   width: 100%;
-  /*
-  margin-top: 25%;
-  margin-left: auto;
-  margin-right: auto;*/
   border: 5px solid rgb(58, 136, 5);
 }
 
