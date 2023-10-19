@@ -25,16 +25,12 @@
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <style>
-    body {
-    }
-  </style>
   <body>
     <div class="container d-flex justify-content-center">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="01_index.html"
-            ><h1>JULIANA WEISS ARTS</h1></a
+            ><h1 class="mx-auto">JULIANA WEISS ARTS</h1></a
           >
         </div>
       </nav>
@@ -86,7 +82,18 @@
 
     <div class="container c-almond">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 text-center">
+          <style>
+            h1 {
+              text-align: left;
+              margin-left: 10%;
+            }
+            p {
+              text-align: justify;
+              margin-left: 10%;
+            }
+          </style>
+          <h1 class="text-">Meine Geschichte</h1>
           <p>
             Ich betrachtete schon als Kind gerne die Natur und alle möglichen
             Dinge und konnte darin immer wieder neue Muster erkennen, welche ich
@@ -97,9 +104,24 @@
             teilen zu dürfen.
           </p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 d-flex justify-content-center">
           <div class="natur">
-            <img src="natur.jpg" alt="natur" />
+            <img
+              src="natur.jpg"
+              alt="natur"
+              class="rounded"
+              style="max-height: 525px"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-6 d-flex justify-content-center"
+            style="margin-top: -15%"
+          >
+            <a href="01_index.html"
+              ><img src="arrow-left.png" alt="arrow" style="max-width: 50%"
+            /></a>
           </div>
         </div>
       </div>

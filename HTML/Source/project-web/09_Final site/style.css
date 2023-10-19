@@ -12,6 +12,7 @@ body {
     rgb(146, 118, 76) 50%,
     rgb(146, 118, 76) 100%
   );
+  
 }
 
 .navbar {
@@ -63,10 +64,14 @@ h2 {
   background-color: blanchedalmond;
 }
 
+.c-almond2 {
+  background-color: blanchedalmond;
+}
+
 .c-brown {
   background-color: burlywood;
 }
 
-.picture{
-    height: 30em;
+.c-black{
+  background-color: black;
 }
