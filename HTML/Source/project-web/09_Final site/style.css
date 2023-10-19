@@ -12,7 +12,6 @@ body {
     rgb(146, 118, 76) 50%,
     rgb(146, 118, 76) 100%
   );
-  
 }
 
 .navbar {
@@ -72,6 +71,10 @@ h2 {
   background-color: burlywood;
 }
 
-.c-black{
+.c-black {
   background-color: black;
+}
+
+.c-white {
+  background-color: white;
 }
