@@ -78,3 +78,8 @@ h2 {
 .c-white {
   background-color: white;
 }
+
+.visual-blocker {
+  background-color: black;
+  height: 30px;
+}
