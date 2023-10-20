@@ -5,13 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(
-    to bottom,
-    blanchedalmond 0%,
-    blanchedalmond 50%,
-    rgb(146, 118, 76) 50%,
-    rgb(146, 118, 76) 100%
-  );
+  background-color: blanchedalmond;
 }
 
 .navbar {
@@ -82,5 +76,8 @@ h2 {
 .visual-blocker {
   background-color: black;
   height: 2px;
-  margin-top: 50%;
+}
+
+.link-opacity-75-hover {
+  color: burlywood;
 }
