@@ -22,21 +22,55 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function isElementInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function handleScroll() {
+        var elements = document.querySelectorAll(".fade-in");
+        elements.forEach(function (element) {
+          if (isElementInViewport(element)) {
+            element.classList.add("visible");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", handleScroll);
+
+      handleScroll();
+    </script>
 
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       h1 {
         font-size: 3em;
       }
     </style>
+  </head>
+  <body>
     <div class="container d-flex justify-content-center">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="01_index.html"
-            ><h1>JULIANA WEISS ARTS</h1></a
-          >
+          <a class="navbar-brand" href="01_index.html">
+            <h1>JULIANA WEISS ARTS</h1>
+          </a>
         </div>
       </nav>
     </div>
@@ -63,8 +97,9 @@
                   class="nav-link active"
                   aria-current="page"
                   href="02_Portfolio.html"
-                  >Portfolio</a
                 >
+                  Portfolio
+                </a>
               </li>
 
               <li class="nav-item">
@@ -88,73 +123,73 @@
       </style>
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-        <a href="Photos 2/löwe.jpg" target="_blank">
-          <img
-            src="löwe.jpg"
-            alt="löwe"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+          <a href="Photos 2/löwe.jpg" target="_blank">
+            <img
+              src="löwe.jpg"
+              alt="löwe"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Lion - 100X70 CM</p>
         </div>
         <div class="col-lg-6 text-center">
-        <a href="Photos 2/violet.jpg" target="_blank">
-          <img
-            src="violet.jpg"
-            alt="violet"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+          <a href="Photos 2/violet.jpg" target="_blank">
+            <img
+              src="violet.jpg"
+              alt="violet"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Violet - 100X70 CM</p>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-        <a href="Photos 2/cat.jpg" target="_blank">
-          <img
-            src="cat portrait.jpg"
-            alt="cat1"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+          <a href="Photos 2/cat.jpg" target="_blank">
+            <img
+              src="cat portrait.jpg"
+              alt="cat1"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Cat Portrait</p>
         </div>
         <div class="col-lg-6 text-center">
-        <a href="Photos 2/cat2.jpg" target="_blank">
-          <img
-            src="cat portrait 2.jpg"
-            alt="cat2"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+          <a href="Photos 2/cat2.jpg" target="_blank">
+            <img
+              src="cat portrait 2.jpg"
+              alt="cat2"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Cat Portrait - A4</p>
         </div>
       </div>
       <div class="row justify-content-center">
-        <a href="Photos 2/strandläufer.jpeg" target="_blank">
         <div class="col-lg-6 text-center">
-          <img
-            src="strandläufer.jpg"
-            alt="strandläufer"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+          <a href="Photos 2/strandläufer.jpeg" target="_blank">
+            <img
+              src="strandläufer.jpg"
+              alt="strandläufer"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Strandläufer - 100X70 CM</p>
         </div>
         <div class="col-lg-6 text-center">
           <a href="Photos 2/hope.jpg" target="_blank">
-          <img
-            src="hope.jpeg"
-            alt="hope"
-            class="mx-auto"
-            style="max-width: 100%; height: 500px"
-          />
-        </a>
+            <img
+              src="hope.jpeg"
+              alt="hope"
+              class="mx-auto fade-in"
+              style="max-width: 100%; height: 500px"
+            />
+          </a>
           <p class="image-text">Hope - A3</p>
         </div>
       </div>
@@ -163,8 +198,11 @@
     <div class="container c-white text-center">
       <div class="visual-blocker" style="margin-top: 5%"></div>
       <div class="col-lg-12" style="margin-top: 3%">
-        <h1 style="margin: 0;">JULIANA WEISS ARTS</h1>
+        <h1 style="margin: 0">JULIANA WEISS ARTS</h1>
         <style>
+          h1 {
+            font-size: 3em;
+          }
           p1 {
             font-size: 100%;
           }
@@ -173,17 +211,22 @@
           JULIANA WEISS - 6300 ZUG - MOBIL: 078 850 67 97
         </p1>
       </div>
-    
-      <div class="row" style="margin-top: 8%;">
+
+      <div class="row" style="margin-top: 8%">
         <div class="col-lg-4 position-relative">
           <img
             src="QR-Codes/tiktok.jpg"
             alt="tiktok"
             style="max-width: 250px; height: auto"
           />
-          <div class="position-absolute top-0 start-50 translate-middle" style="margin-top: -20px;">
+          <div
+            class="position-absolute top-0 start-50 translate-middle"
+            style="margin-top: -20px"
+          >
             <p1>
-              <a class="link-opacity-75-hover" href="https://www.tiktok.com/@julianaweissarts"
+              <a
+                class="link-opacity-75-hover"
+                href="https://www.tiktok.com/@julianaweissarts"
                 >@julianaweissarts</a
               >
             </p1>
@@ -197,11 +240,14 @@
               style="max-width: 200px; height: auto"
             />
           </div>
-          <div class="position-absolute top-0 start-50 translate-middle" style="margin-top: -20px;">
+          <div
+            class="position-absolute top-0 start-50 translate-middle"
+            style="margin-top: -20px"
+          >
             <p1>
               <a class="link-opacity-75-hover" href="#"
                 >julianaweiss.arts@gmail.com</a
-            >
+              >
             </p1>
           </div>
         </div>
@@ -211,15 +257,20 @@
             alt="instagram"
             style="max-width: 250px; height: auto"
           />
-          <div class="position-absolute top-0 start-50 translate-middle" style="margin-top: -20px;">
+          <div
+            class="position-absolute top-0 start-50 translate-middle"
+            style="margin-top: -20px"
+          >
             <p1>
-              <a class="link-opacity-75-hover" href="https://www.instagram.com/juliana_weiss_arts/"
-                >juliana_weiss_arts</a>
+              <a
+                class="link-opacity-75-hover"
+                href="https://www.instagram.com/juliana_weiss_arts/"
+                >juliana_weiss_arts</a
+              >
             </p1>
           </div>
         </div>
       </div>
     </div>
-    
   </body>
 </html>
