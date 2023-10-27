@@ -56,9 +56,7 @@ int main()
             continue;
         }
 
-        row--; // Convert to 0-based index
-
-        // Check if the chosen space is already occupied
+        row--;
         if (matrix[row / 3][row % 3] != 0)
         {
             printf("Space is already occupied. Choose another space.\n");
