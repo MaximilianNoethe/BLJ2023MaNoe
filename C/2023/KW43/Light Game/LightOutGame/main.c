@@ -32,24 +32,17 @@ void printGrid()
     }
 }
 
-// void toggleLight(int row, int col)
-//{
-//     grid[row][col] = !grid[row][col];
-//     if (row > 0)
-//         grid[row - 1][col] = !grid[row - 1][col];
-//     if (row < SIZE - 1)
-//         grid[row + 1][col] = !grid[row + 1][col];
-//     if (col > 0)
-//         grid[row][col - 1] = !grid[row][col - 1];
-//     if (col < SIZE - 1)
-//         grid[row][col + 1] = !grid[row][col + 1];
-// }
-
-
-
-void togglefield()
+void toggleLight(int row, int col)
 {
-
+    grid[row][col] = !grid[row][col];
+    if (row > 0)
+        grid[row - 1][col] = !grid[row - 1][col];
+    if (row < SIZE - 1)
+        grid[row + 1][col] = !grid[row + 1][col];
+    if (col > 0)
+        grid[row][col - 1] = !grid[row][col - 1];
+    if (col < SIZE - 1)
+        grid[row][col + 1] = !grid[row][col + 1];
 }
 
 bool isGameWon()
