@@ -106,8 +106,8 @@ void printFamily()
 int main()
 {
     initFamily(); // Prints family member
-    printFamily(); // Prints family facts
+    printFamily(); // Prints family values
     
-    printPerson(0); //Prints any family member between 0 - 3 -> This example: John Doe
+    printPerson(0); //Prints any family member between 0 - 3 you have to choose it tho -> This example: John Doe
     return 0;
 }
