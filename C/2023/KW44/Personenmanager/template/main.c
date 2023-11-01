@@ -42,13 +42,13 @@ TPerson family[NUMBER_OF_FAMILY_MEMBERS];
 /*==========================================================================*\
 :  F U N C T I O N    I M P L E M E M T A T I O N
 \*==========================================================================*/
-void printPerson(TPerson person)
+void printPerson(int index)
 {
-    printf("Firstname: %s\n", person.firstname);
-    printf("Lastname: %s\n", person.lastname);
-    printf("birthyear: %d\n", person.birthyear);
-    printf("Weight: %dkg\n", person.weight);
-    printf("Height: %dcm\n", person.height);
+    printf("Firstname: %s\n", family[index].firstname);
+    printf("Lastname: %s\n", family[index].lastname);
+    printf("birthyear: %d\n", family[index].birthyear);
+    printf("Weight: %dkg\n", family[index].weight);
+    printf("Height: %dcm\n", family[index].height);
 }
 void initFamily()
 {
@@ -91,9 +91,9 @@ void printFamily()
     for (int i = 0; i < NUMBER_OF_FAMILY_MEMBERS; i++)
     {
         printf("Family Member %d:\n", i + 1);
-        printPerson;    
+        printPerson(i);  
+        printf("\n\n");  
     }
-    
 }
 
 /* ---------------------------------------------------------------------------
@@ -105,7 +105,9 @@ void printFamily()
 
 int main()
 {
-    initFamily();
-    printFamily();
+    initFamily(); // Prints family member
+    printFamily(); // Prints family facts
+    
+    printPerson(0); //Prints any family member between 0 - 3 -> This example: John Doe
     return 0;
 }
