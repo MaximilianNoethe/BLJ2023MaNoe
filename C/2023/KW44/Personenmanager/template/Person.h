@@ -44,7 +44,7 @@ typedef struct Person
 {
     char firstname[4 + 1];
     char lastname[3 + 1];
-    int birthday;
+    int birthyear;
     int weight;
     int height;
 } TPerson;

@@ -46,7 +46,7 @@ void printPerson(TPerson person)
 {
     printf("Firstname: %s\n", person.firstname);
     printf("Lastname: %s\n", person.lastname);
-    printf("Birthday: %d\n", person.birthday);
+    printf("birthyear: %d\n", person.birthyear);
     printf("Weight: %dkg\n", person.weight);
     printf("Height: %dcm\n", person.height);
 }
@@ -55,28 +55,28 @@ void initFamily()
     TPerson person1;
     strncpy(person1.firstname, "John", sizeof(person1.firstname)) - 1;
     strncpy(person1.lastname, "Doe", sizeof(person1.lastname)) - 1;
-    person1.birthday = 1981;
+    person1.birthyear = 1981;
     person1.weight = 91;
     person1.height = 196;
 
     TPerson person2;
     strncpy(person2.firstname, "jane", sizeof(person2.firstname)) - 1;
     strncpy(person2.lastname, "Doe", sizeof(person2.lastname)) - 1;
-    person2.birthday = 1980;
+    person2.birthyear = 1980;
     person2.weight = 64;
     person2.height = 178;
 
     TPerson person3;
     strncpy(person3.firstname, "Jack", sizeof(person2.firstname)) - 1;
     strncpy(person3.lastname, "Doe", sizeof(person2.lastname)) - 1;
-    person3.birthday = 2008;
+    person3.birthyear = 2008;
     person3.weight = 40;
     person3.height = 163;
 
     TPerson person4;
     strncpy(person4.firstname, "Judy", sizeof(person4.firstname)) - 1;
     strncpy(person4.lastname, "Doe", sizeof(person4.lastname)) - 1;
-    person4.birthday = 2015;
+    person4.birthyear = 2015;
     person4.weight = 30;
     person4.height = 124;
 
@@ -91,8 +91,9 @@ void printFamily()
     for (int i = 0; i < NUMBER_OF_FAMILY_MEMBERS; i++)
     {
         printf("Family Member %d:\n", i + 1);
-        printPerson;
+        printPerson;    
     }
+    
 }
 
 /* ---------------------------------------------------------------------------
