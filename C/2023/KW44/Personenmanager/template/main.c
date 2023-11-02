@@ -116,7 +116,7 @@ void initFamily()
     family[2] = person3;
     family[3] = person4;
 }
-§
+
 void printFamily()
 {
     for (int i = 0; i < NUMBER_OF_FAMILY_MEMBERS; i++)
