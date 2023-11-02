@@ -24,6 +24,7 @@
 :  I N C L U D E S
 \*==========================================================================*/
 #include <stdio.h>
+#include <string.h>
 #include "Person.h"
 
 /*==========================================================================*\
@@ -119,11 +120,11 @@ int main()
 
     initFamily();  // Prints family member
     printFamily(); // Prints family values
-/*
+
     printf("Choose a person(0-3) to display:");
     scanf("%i", &index);
     printPerson();
-*/
+
     // printPerson(0); // Prints any family member between 0 - 3 but you have to choose it  -> This example: John Doe
     return 0;
 }
