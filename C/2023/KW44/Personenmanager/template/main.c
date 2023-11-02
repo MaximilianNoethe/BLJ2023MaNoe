@@ -49,6 +49,8 @@ void printPerson(int index)
     printf("birthyear: %d\n", family[index].birthyear);
     printf("Weight: %dkg\n", family[index].weight);
     printf("Height: %dcm\n", family[index].height);
+    printf("Club: %s\n", family[index].club);
+    printf("Topic: %s\n", family[index].topic);
 }
 void initFamily()
 {
@@ -58,6 +60,8 @@ void initFamily()
     person1.birthyear = 1981;
     person1.weight = 91;
     person1.height = 196;
+    strncpy(person1.club, "Zug 94", sizeof(person1.club)) - 1;
+    strncpy(person1.topic, "Football", sizeof(person1.topic)) - 1;
 
     TPerson person2;
     strncpy(person2.firstname, "jane", sizeof(person2.firstname)) - 1;
@@ -65,13 +69,17 @@ void initFamily()
     person2.birthyear = 1980;
     person2.weight = 64;
     person2.height = 178;
+    strncpy(person2.club, "Zug 94", sizeof(person2.club)) - 1;
+    strncpy(person2.topic, "Football", sizeof(person2.topic)) - 1;
 
     TPerson person3;
-    strncpy(person3.firstname, "Jack", sizeof(person2.firstname)) - 1;
-    strncpy(person3.lastname, "Doe", sizeof(person2.lastname)) - 1;
+    strncpy(person3.firstname, "Jack", sizeof(person3.firstname)) - 1;
+    strncpy(person3.lastname, "Doe", sizeof(person3.lastname)) - 1;
     person3.birthyear = 2008;
     person3.weight = 40;
     person3.height = 163;
+    strncpy(person3.club, "Zug 94", sizeof(person3.club)) - 1;
+    strncpy(person3.topic, "Football", sizeof(person3.topic)) - 1;
 
     TPerson person4;
     strncpy(person4.firstname, "Judy", sizeof(person4.firstname)) - 1;
@@ -79,6 +87,8 @@ void initFamily()
     person4.birthyear = 2015;
     person4.weight = 30;
     person4.height = 124;
+    strncpy(person4.club, "Zug 94", sizeof(person4.club)) - 1;
+    strncpy(person4.topic, "Football", sizeof(person4.topic)) - 1;
 
     family[0] = person1;
     family[1] = person2;
@@ -109,11 +119,11 @@ int main()
 
     initFamily();  // Prints family member
     printFamily(); // Prints family values
-
+/*
     printf("Choose a person(0-3) to display:");
     scanf("%i", &index);
     printPerson();
-
+*/
     // printPerson(0); // Prints any family member between 0 - 3 but you have to choose it  -> This example: John Doe
     return 0;
 }

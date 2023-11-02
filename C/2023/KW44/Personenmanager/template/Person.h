@@ -26,6 +26,8 @@
 // #include <>           /* included for what reason  */
 // #include ""           /* included for what reason  */
 
+#include "Club.h"
+
 /*==========================================================================*\
 :  D E F I N E S                                           (for preprocessor)
 \*==========================================================================*/
@@ -47,6 +49,9 @@ typedef struct Person
     int birthyear;
     int weight;
     int height;
+
+    TClub club;
+    TClub topic;
 
 } TPerson;
 
