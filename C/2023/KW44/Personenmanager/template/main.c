@@ -43,6 +43,21 @@ TPerson family[NUMBER_OF_FAMILY_MEMBERS];
 /*==========================================================================*\
 :  F U N C T I O N    I M P L E M E M T A T I O N
 \*==========================================================================*/
+TPerson findOldestFamilyMember()
+{
+    TPerson oldest = family[1]; // Assume the first person is the oldest
+
+    for (int i = 1; i < NUMBER_OF_FAMILY_MEMBERS; i++)
+    {
+        if (family[i].birthyear < oldest.birthyear)
+        {
+            oldest = family[i];
+        }
+    }
+
+    return oldest;
+}
+
 void printPerson(int index)
 {
     printf("Firstname: %s\n", family[index].firstname);
@@ -101,7 +116,7 @@ void initFamily()
     family[2] = person3;
     family[3] = person4;
 }
-
+§
 void printFamily()
 {
     for (int i = 0; i < NUMBER_OF_FAMILY_MEMBERS; i++)
@@ -125,6 +140,11 @@ int main()
 
     initFamily();  // Prints family member
     printFamily(); // Prints family values
+
+    TPerson oldestPerson = findOldestFamilyMember();
+
+    printf("\nOldest Family Member:\n----------------\n");
+    printPerson(oldestPerson);
 
     printf("Choose a person(0-3) to display:");
     scanf("%i", &index);
