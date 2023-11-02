@@ -91,8 +91,8 @@ void printFamily()
     for (int i = 0; i < NUMBER_OF_FAMILY_MEMBERS; i++)
     {
         printf("Family Member %d:\n", i + 1);
-        printPerson(i);  
-        printf("\n\n");  
+        printPerson(i);
+        printf("\n\n");
     }
 }
 
@@ -105,9 +105,15 @@ void printFamily()
 
 int main()
 {
-    initFamily(); // Prints family member
+    int index;
+
+    initFamily();  // Prints family member
     printFamily(); // Prints family values
-    
-    printPerson(0); //Prints any family member between 0 - 3 you have to choose it tho -> This example: John Doe
+
+    printf("Choose a person(0-3) to display:");
+    scanf("%i", &index);
+    printPerson();
+
+    // printPerson(0); // Prints any family member between 0 - 3 but you have to choose it  -> This example: John Doe
     return 0;
 }
