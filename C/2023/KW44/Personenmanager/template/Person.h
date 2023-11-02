@@ -50,8 +50,7 @@ typedef struct Person
     int weight;
     int height;
 
-    TClub club;
-    TClub topic;
+    TClub myClub;
 
 } TPerson;
 
