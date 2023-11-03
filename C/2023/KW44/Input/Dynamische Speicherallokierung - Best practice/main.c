@@ -11,7 +11,7 @@ int main()
     {
         nums[i] = i;
 
-        //*(nums + i) = i;
+        *(nums + i) = i;
     }
 
     if (nums)
