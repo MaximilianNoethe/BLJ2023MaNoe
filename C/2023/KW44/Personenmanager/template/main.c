@@ -40,10 +40,41 @@ int index = 0;
 /*==========================================================================*\
 :  L O C A L    F U N C T I O N    P R O T O T Y P E S         (declaration)
 \*==========================================================================*/
-
+void printPerson();
+void initFamily();
+void printFamily();
+void sortFamily();
 /*==========================================================================*\
 :  F U N C T I O N    I M P L E M E M T A T I O N
 \*==========================================================================*/
+
+/* ---------------------------------------------------------------------------
+    main
+   ---------------------------------------------------------------------------
+
+    Description of function
+*/
+
+int main()
+{
+    printf("*************************************************");
+    printf("\nWhat criteria should be used to sort the family?\n\n");
+    printf("1: Age\n2: Weight\n3: height\n");
+    printf("*************************************************\n");
+
+    initFamily(); // Prints family values
+    sortFamily(); // Sorts and prints the family after a specific criteria
+
+    //  initFamily();  // Prints family member
+    //  printFamily(); // Prints family values
+
+    //  printf("Choose a person(0-3) to display:");
+    //  scanf("%i", &index);
+    //  printf("\n");
+    //  printPerson(index);
+
+    return 0;
+}
 
 void printPerson()
 {
@@ -116,7 +147,9 @@ void printFamily()
 
 void sortFamily()
 {
+    printf("Input: ");
     scanf("%d", &sortInt);
+    printf("\n");
 
     switch (sortInt)
     {
@@ -189,32 +222,4 @@ void sortFamily()
     default:
         break;
     }
-}
-
-/* ---------------------------------------------------------------------------
-    main
-   ---------------------------------------------------------------------------
-
-    Description of function
-*/
-
-int main()
-{
-
-    printf("How do you want the family to be sorted?\n\n");
-    printf("1: Age\n2: Weight\n3: height\n");
-
-    initFamily();
-    sortFamily();
-
-    /*
-    initFamily();  // Prints family member
-    printFamily(); // Prints family values
-
-    printf("Choose a person(0-3) to display:");
-    scanf("%i", &index);
-    printf("\n");
-    printPerson(index);
-    */
-    return 0;
 }
