@@ -220,6 +220,7 @@ void sortFamily()
         break;
 
     default:
+    printf("ERROR\nplease enter a valid number!");
         break;
     }
 }
