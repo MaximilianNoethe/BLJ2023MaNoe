@@ -26,6 +26,6 @@ void randomNumbers()
         exit(1);
     }
 
-    int randnum
+    int randnum;
     
-}
+};

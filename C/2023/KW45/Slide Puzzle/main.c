@@ -32,8 +32,6 @@ int main(void)
         // swap neighboured values (horizontally or vertically) in the 2D array
         // based on user input, but only if the move is legal (bounds checking).
 
-
-
         if (input == 1)
         {
             swapValues(&field[0][0], &field[0][1]);
