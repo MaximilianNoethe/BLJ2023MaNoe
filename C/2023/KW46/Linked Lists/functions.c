@@ -1,10 +1,14 @@
+#include <stdio.h>
+#include "linkedlist.h"
 
 
-void initNode(int data)
+TNode *initNode(int value)
 {
 
-    TNode *newNode = (TNode *)malloc(sizeof(TNode));
+    TNode *newNode = malloc(sizeof(TNode));
 
-    newNode->data = data;     // Datenfeld setzen
+    newNode->data = value;    // Datenfeld setzen
     newNode->nextNode = NULL; // nextNode Pointer auf NULL setzen
+
+    return newNode;
 }

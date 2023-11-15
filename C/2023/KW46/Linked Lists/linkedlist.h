@@ -8,8 +8,5 @@ typedef struct Node
 
 } TNode;
 
-
-
-
 void initNode(int data)
 #endif
