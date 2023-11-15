@@ -9,5 +9,6 @@ typedef struct Node
 } TNode;
 
 TNode *initNode(int data);
+TNode *outputNode();
 
 #endif
