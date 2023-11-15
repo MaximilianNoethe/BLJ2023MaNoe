@@ -18,7 +18,7 @@ int main(void)
     myNode3->nextNode = myNode4;
     myNode4->nextNode = myNode5;
     myNode5->nextNode = NULL;
-    1
+    
     printList(head);
 
     return 0;
