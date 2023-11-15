@@ -1,14 +1,5 @@
 #include <stdio.h>
-//#include "linkedlist.h"
-
-typedef struct Node
-{
-    int data;
-    struct Node *nextNode;
-
-} TNode;
-
-TNode *initNode(int data);
+#include "linkedlist.h"
 
 int main(void)
 {
@@ -24,6 +15,7 @@ int main(void)
     myNode2->nextNode = myNode3;
     myNode3->nextNode = myNode4;
     myNode4->nextNode = myNode5;
+    myNode5->nextNode = NULL;
 
     printf("Data from fifth node: %d", myNode5->data);
 
