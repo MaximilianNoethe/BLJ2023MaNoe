@@ -4,6 +4,7 @@
 
 int main(void)
 {
+
     TNode *head = initNode(10);
     TNode *myNode1 = initNode(12);
     TNode *myNode2 = initNode(8);
@@ -11,6 +12,7 @@ int main(void)
     TNode *myNode4 = initNode(1);
     TNode *myNode5 = initNode(30);
 
+    // Task 7
     head->nextNode = myNode1;
     myNode1->nextNode = myNode2;
     myNode2->nextNode = myNode3;
@@ -18,30 +20,46 @@ int main(void)
     myNode4->nextNode = myNode5;
     myNode5->nextNode = NULL;
 
-    printList(head);
+    printList(head); // Task 5
     /*
         printf("\n\nCalled addNode()\n\n");
-        addNode(head, 24);
+        addNode(head, 24); // Task 8
 
         printList(head);
 
         printf("\n\nList after deleting:\n\n");
 
-        deleteNode(head, 5);
+        deleteNode(head, 5); /Task 9
 
         printList(head);*/
 
     printf("\n\nList after adding:\n\n");
-    implementNode(head, 6, 99);
+    implementNode(head, 6, 99); // Task 10
 
     printList(head);
 
     printf("\n\nContent of one Node:\n\n");
-    contentNode(head, 3);
+    contentNode(head, 3); // Task 11
+
+    // task 12
+    int indexToSet = 2;
+    int newData = 42;
+    setNodeDataAtIndex(head, indexToSet, newData);
+
+    printf("\nLinked List after setting data at index %d:\n", indexToSet);
+    printList(head);
+
+    // Task 13
+    int newDataForAllNodes = 25;
+    setAllNodeData(head, newDataForAllNodes);
+
+    printf("\nLinked List after setting data for all nodes:\n");
+    printList(head);
 
     return 0;
 }
 
+// Task 6
 TNode *initNode(int value)
 {
 
@@ -173,7 +191,38 @@ void contentNode(TNode *head, int index)
 
     else
     {
-        printf("The content of Index %d is: %d\n", index, currentNode->data);
+        printf("The content of Index %d is: %d\n\n", index, currentNode->data);
     }
 }
 
+void setNodeDataAtIndex(TNode *head, int index, int newData)
+{
+    TNode *current = head;
+
+    for (int i = 0; i < index - 1 && current != NULL; ++i)
+    {
+        current = current->nextNode;
+    }
+
+    if (current == NULL)
+    {
+        printf("Error: Index out of bounds\n");
+        return;
+    }
+
+    current->data = newData;
+    printf("Data at index %d set to %d\n", index, newData);
+}
+
+void setAllNodeData(TNode *head, int newData)
+{
+    TNode *current = head;
+
+    while (current != NULL)
+    {
+        current->data = newData;
+        current = current->nextNode;
+    }
+
+    printf("Data set to %d for all nodes\n", newData);
+}
