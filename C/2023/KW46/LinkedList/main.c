@@ -41,6 +41,8 @@ int main(void)
     printf("\n\nContent of one Node:\n\n");
     contentNode(head, 3); // Task 11
 
+    printf("\n\n-----------------------------------------------------------------\n\n");
+
     // task 12
     int indexToSet = 2;
     int newData = 42;
@@ -49,11 +51,27 @@ int main(void)
     printf("\nLinked List after setting data at index %d:\n", indexToSet);
     printList(head);
 
+    printf("\n\n-----------------------------------------------------------------\n\n");
+
     // Task 13
     int newDataForAllNodes = 25;
     setAllNodeData(head, newDataForAllNodes);
 
     printf("\nLinked List after setting data for all nodes:\n");
+    printList(head);
+
+    printf("\n\n-----------------------------------------------------------------\n\n");
+
+    // Task 14
+    int length = getLinkedListLength(head);
+    printf("\nLength of the linked list: %d\n", length);
+
+    printf("\n\n-----------------------------------------------------------------\n\n");
+
+    // Task 15
+    deleteLinkedList(head);
+
+    printf("\nLinked List after deletion:\n");
     printList(head);
 
     return 0;
@@ -225,4 +243,33 @@ void setAllNodeData(TNode *head, int newData)
     }
 
     printf("Data set to %d for all nodes\n", newData);
+}
+
+int getLinkedListLength(TNode *head)
+{
+    int length = 0;
+    TNode *current = head;
+
+    while (current != NULL)
+    {
+        length++;
+        current = current->nextNode;
+    }
+
+    return length;
+}
+
+void deleteLinkedList(TNode *head)
+{
+    TNode *current = *head;
+    TNode *nextNode;
+
+    while (current != NULL)
+    {
+        nextNode = current->nextNode;
+        free(current);
+        current = nextNode;
+    }
+
+    *head = NULL;
 }
