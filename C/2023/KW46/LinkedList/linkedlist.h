@@ -11,5 +11,6 @@ typedef struct Node
 TNode *initNode(int data);
 TNode *outputNode();
 void printList(TNode *head);
+void addNode(TNode *head, int value);
 
 #endif
