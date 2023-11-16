@@ -26,6 +26,12 @@ int main(void)
 
     printList(head);
 
+    printf("\n\nList after deleating:\n\n");
+
+    deleteNode(head, 3);
+
+    printList(head);
+
     return 0;
 }
 
@@ -87,5 +93,36 @@ void addNode(TNode *head, int value)
         lastNode = lastNode->nextNode;
     }
 
+    lastNode->nextNode;
+
     lastNode->nextNode = initNode(value);
+}
+
+void deleteNode(TNode *head, int index)
+{
+
+    if (index == 0)
+    {
+        TNode *temp = head;
+        head = head->nextNode;
+        free(temp);
+        return;
+    }
+
+    TNode *prevNode = head;
+    for (int i = 0; i < index - 1 && prevNode != NULL; i++)
+    {
+        prevNode = prevNode->nextNode;
+    }
+
+    if (prevNode == NULL || prevNode->nextNode == NULL)
+    {
+        printf("Invalid Index for deleting.\n");
+        return;
+    }
+
+    TNode *deleteNode = prevNode->nextNode;
+    prevNode->nextNode = deleteNode->nextNode;
+
+    free(deleteNode);
 }

@@ -12,5 +12,6 @@ TNode *initNode(int data);
 TNode *outputNode();
 void printList(TNode *head);
 void addNode(TNode *head, int value);
+void deleteNode(TNode *head, int index);
 
 #endif
