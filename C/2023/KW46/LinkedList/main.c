@@ -4,7 +4,6 @@
 
 int main(void)
 {
-
     TNode *head = initNode(10);
     TNode *myNode1 = initNode(12);
     TNode *myNode2 = initNode(8);
@@ -26,11 +25,16 @@ int main(void)
 
     printList(head);
 
-    printf("\n\nList after deleating:\n\n");
+    printf("\n\nList after deleting:\n\n");
 
-    deleteNode(head, 3);
+    deleteNode(head, 5);
 
     printList(head);
+
+    /*printf("\n\nList after adding:\n\n");
+    implementNode(head, 3, 99);
+
+    printList(head);*/
 
     return 0;
 }
@@ -110,6 +114,29 @@ void deleteNode(TNode *head, int index)
     }
 
     TNode *prevNode = head;
+    for (int i = 0; i < index - 1 && prevNode->nextNode != NULL; i++)
+    {
+        prevNode = prevNode->nextNode;
+    }
+
+    TNode *deleteNode = prevNode->nextNode;
+    prevNode->nextNode = deleteNode->nextNode;
+
+    free(deleteNode);
+}
+
+void implementNode(TNode *head, int index, int value)
+{
+
+    if (index == 0)
+    {
+        TNode *newNode = initNode(value);
+        newNode->nextNode = head->nextNode;
+        head->nextNode = newNode;
+        return;
+    }
+
+    TNode *prevNode = head;
     for (int i = 0; i < index - 1 && prevNode != NULL; i++)
     {
         prevNode = prevNode->nextNode;
@@ -117,12 +144,11 @@ void deleteNode(TNode *head, int index)
 
     if (prevNode == NULL || prevNode->nextNode == NULL)
     {
-        printf("Invalid Index for deleting.\n");
+        printf("Invalide Index for implementing");
         return;
     }
 
-    TNode *deleteNode = prevNode->nextNode;
-    prevNode->nextNode = deleteNode->nextNode;
-
-    free(deleteNode);
+    TNode *newNode = initNode(value);
+    newNode->nextNode = prevNode->nextNode;
+    prevNode->nextNode = newNode;
 }
