@@ -19,22 +19,25 @@ int main(void)
     myNode5->nextNode = NULL;
 
     printList(head);
+    /*
+        printf("\n\nCalled addNode()\n\n");
+        addNode(head, 24);
 
-    printf("\n\nCalled addNode()\n\n");
-    addNode(head, 24);
+        printList(head);
+
+        printf("\n\nList after deleting:\n\n");
+
+        deleteNode(head, 5);
+
+        printList(head);*/
+
+    printf("\n\nList after adding:\n\n");
+    implementNode(head, 6, 99);
 
     printList(head);
 
-    printf("\n\nList after deleting:\n\n");
-
-    deleteNode(head, 5);
-
-    printList(head);
-
-    /*printf("\n\nList after adding:\n\n");
-    implementNode(head, 3, 99);
-
-    printList(head);*/
+    printf("\n\nContent of one Node:\n\n");
+    contentNode(head, 3);
 
     return 0;
 }
@@ -137,14 +140,14 @@ void implementNode(TNode *head, int index, int value)
     }
 
     TNode *prevNode = head;
-    for (int i = 0; i < index - 1 && prevNode != NULL; i++)
+    for (int i = 0; i < index - 1 && prevNode->nextNode != NULL; i++)
     {
         prevNode = prevNode->nextNode;
     }
 
     if (prevNode == NULL || prevNode->nextNode == NULL)
     {
-        printf("Invalide Index for implementing");
+        printf("Invalid Index for implementing.\n");
         return;
     }
 
@@ -152,3 +155,25 @@ void implementNode(TNode *head, int index, int value)
     newNode->nextNode = prevNode->nextNode;
     prevNode->nextNode = newNode;
 }
+
+void contentNode(TNode *head, int index)
+{
+
+    TNode *currentNode = head;
+
+    for (int i = 0; i < index - 1 && currentNode != NULL; i++)
+    {
+        currentNode = currentNode->nextNode;
+    }
+
+    if (currentNode == NULL)
+    {
+        printf("Invalid Index to show content.\n");
+    }
+
+    else
+    {
+        printf("The content of Index %d is: %d\n", index, currentNode->data);
+    }
+}
+
