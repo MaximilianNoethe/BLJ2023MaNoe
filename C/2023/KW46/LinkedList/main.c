@@ -35,7 +35,7 @@ int main(void)
     printList(head);
 
     printf("\n\n-----------------------------------------------------------------\n\n");
-    
+
     // Task 9
     printf("\nList after deleting:\n\n");
 
@@ -44,7 +44,7 @@ int main(void)
     printList(head);
 
     printf("\n\n-----------------------------------------------------------------\n\n");
-    
+
     // Task 10
     printf("\nList after adding:\n\n");
     implementNode(head, 3, 99);
@@ -52,7 +52,7 @@ int main(void)
     printList(head);
 
     printf("\n\n-----------------------------------------------------------------\n\n");
-    
+
     // Task 11
     printf("\nContent of one Node:\n");
     contentNode(head, 3);
