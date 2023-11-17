@@ -15,7 +15,7 @@ int main(void)
     TNode *myNode4 = initNode(1);
     TNode *myNode5 = initNode(30);
 
-    // Task 7
+    // Task 3 / 7
     head->nextNode = myNode1;
     myNode1->nextNode = myNode2;
     myNode2->nextNode = myNode3;

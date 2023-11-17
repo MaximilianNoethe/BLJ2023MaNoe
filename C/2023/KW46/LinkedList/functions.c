@@ -6,7 +6,7 @@
 TNode *initNode(int value)
 {
 
-    TNode *newNode = malloc(sizeof(TNode));
+    TNode *newNode = malloc(sizeof(TNode)); // heap speicher
 
     newNode->data = value;    // Datenfeld setzen
     newNode->nextNode = NULL; // nextNode Pointer auf NULL setzen
@@ -14,7 +14,7 @@ TNode *initNode(int value)
     return newNode;
 }
 
-
+// Task 5 / 7
 void printList(TNode *head)
 {
     TNode *current_node = head;
@@ -27,6 +27,7 @@ void printList(TNode *head)
     }
 }
 
+// Task 8
 void addNode(TNode *head, int value)
 {
     TNode *lastNode = head;
@@ -41,6 +42,7 @@ void addNode(TNode *head, int value)
     lastNode->nextNode = initNode(value);
 }
 
+// Task 9
 void deleteNode(TNode *head, int index)
 {
 
@@ -64,6 +66,7 @@ void deleteNode(TNode *head, int index)
     free(deleteNode);
 }
 
+// Task 10
 void implementNode(TNode *head, int index, int value)
 {
 
@@ -92,6 +95,7 @@ void implementNode(TNode *head, int index, int value)
     prevNode->nextNode = newNode;
 }
 
+// Task 11
 void contentNode(TNode *head, int index)
 {
 
@@ -113,6 +117,7 @@ void contentNode(TNode *head, int index)
     }
 }
 
+// Task 12
 void setNodeDataAtIndex(TNode *head, int index, int newData)
 {
     TNode *current = head;
@@ -132,6 +137,7 @@ void setNodeDataAtIndex(TNode *head, int index, int newData)
     printf("\nData at index %d set to %d\n", index, newData);
 }
 
+// Task 13
 void setAllNodeData(TNode *head, int newData)
 {
     TNode *current = head;
@@ -145,6 +151,7 @@ void setAllNodeData(TNode *head, int newData)
     printf("\nData set to %d for all nodes\n", newData);
 }
 
+// Task 14
 int getLinkedListLength(TNode *head)
 {
     int length = 0;
@@ -159,7 +166,7 @@ int getLinkedListLength(TNode *head)
     return length;
 }
 
-
+// Task 15 
 void deleteLinkedList(TNode **head) 
 {
     TNode *current = *head;
