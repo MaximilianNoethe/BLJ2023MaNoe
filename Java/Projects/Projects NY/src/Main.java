@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
-        String name = "Lumpi";
+
+        /*String name = "Lumpi";
         String breed = "Border Collie";
         String color = "blue";
-        int birthyear = 2012;
+        int birthyear = 2012;*/
 /*
         System.out.println(name);
         System.out.println(breed);
