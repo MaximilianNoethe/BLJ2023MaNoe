@@ -8,38 +8,48 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
+        Manager manager = new Manager();
+
         ArrayList<Person> peoples = new ArrayList<Person>();
 
 
-        System.out.print("Please enter a name: ");
-        String name = in.nextLine();
-        System.out.print("Please enter a age: ");
-        int age = in.nextInt();
-        in.nextLine();
-        System.out.print("Please enter a height: ");
-        int height = in.nextInt();
-        in.nextLine();
-        System.out.print("Please enter a weight: ");
-        int weight = in.nextInt();
-        in.nextLine();
-        System.out.print("Please enter a ethnicity: ");
-        String ethnicity = in.nextLine();
-
-        peoples.add(new Person(name, age, height, weight, ethnicity));
-
-        System.out.println();
-
-        for (int i = 0; i < peoples.size(); i++){
-            System.out.println("Name: "+ peoples.get(i).getName());
-            System.out.println("Age in years: "+ peoples.get(i).getAge());
-            System.out.println("Height in cm: "+ peoples.get(i).getHeight());
-            System.out.println("Weight in kg: "+ peoples.get(i).getWeight());
-            System.out.println("Your ethnicity: "+ peoples.get(i).getEthnicity());
-        }
-
-        System.out.println("v2: \n"+peoples.toString());
 
 
+while (true){
+    System.out.println("***Welcome to the character creation***");
+    System.out.println("Enter 1 to create a character");
+    System.out.println("Enter 2 to see all characters");
+    System.out.println("Enter 3 to exit the program");
+    int input = in.nextInt();
+    in.nextLine();
 
+    switch (input){
+        case 1:
+            manager.addPerson();
+            System.out.println("Do you want to add one more? (yes/no)");
+            String response = in.nextLine().toLowerCase();
+            if (!response.equals("yes")) {
+
+                continue;
+            }
+            break;
+
+        case 2:
+            if (peoples.isEmpty()){
+                System.out.println("The list is empty.");
+                System.out.println();
+            } else {
+                manager.printList();
+            }
+            break;
+
+        case 3:
+            System.out.println("Good bye!");
+            System.exit(0);
+        default:
+            System.err.println("ERROR please enter a valid number");
+
+    }
+}
     }
 }
