@@ -9,7 +9,8 @@ public class Person {
     private String ethnicity;
 
 
-    public Person(){}
+    public Person() {
+    }
 
     public Person(String name, int age, int height, int weight, String ethnicity) {
         this.name = name;
@@ -20,11 +21,11 @@ public class Person {
     }
 
 
-    void eating(){
+    void eating() {
         System.out.println(name + "mampf!");
     }
 
-    void singing(){
+    void singing() {
         System.out.println(name + "LAlaLAlaLAla");
     }
 
