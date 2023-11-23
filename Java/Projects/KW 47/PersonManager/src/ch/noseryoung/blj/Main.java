@@ -10,7 +10,7 @@ public class Main {
 
         Manager manager = new Manager();
 
-        ArrayList<Person> peoples = new ArrayList<Person>();
+        ArrayList<Person> peoples = manager.peoples;
 
 
 
@@ -40,6 +40,7 @@ while (true){
                 System.out.println();
             } else {
                 manager.printList();
+                System.out.println();
             }
             break;
 
