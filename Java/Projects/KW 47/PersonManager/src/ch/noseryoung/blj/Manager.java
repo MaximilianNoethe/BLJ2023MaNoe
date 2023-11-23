@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Manager {
     Scanner in = new Scanner(System.in);
+
     ArrayList<Person> peoples = new ArrayList<Person>();
 
     void addPerson() {
