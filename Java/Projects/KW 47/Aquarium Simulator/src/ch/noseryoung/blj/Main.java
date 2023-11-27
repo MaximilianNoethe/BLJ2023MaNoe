@@ -8,7 +8,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         Aquarium aquarium = new Aquarium();
-        
+
 
         System.out.println("Enter 1 to edit the aquariums");
         System.out.println("Enter 2 to edit the fishes");
