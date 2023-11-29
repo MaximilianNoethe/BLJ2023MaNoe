@@ -6,17 +6,21 @@ import java.util.Scanner;
 
 public class Aquarium {
 
+    Scanner in = new Scanner(System.in);
 
     private boolean isSaltwater;
     private int[][] aquarium;
+
+    private String name;
     ArrayList<Fish> fish = new ArrayList<Fish>();
 
     public Aquarium() {
     }
 
-    public Aquarium(int width, int length, boolean isSaltwater) {
+    public Aquarium(int width, int length, boolean isSaltwater, String name) {
         this.aquarium = new int[width][length];
         this.isSaltwater = isSaltwater;
+        this.name = name;
     }
 
 
@@ -36,21 +40,6 @@ public class Aquarium {
     }
 
 
-    void editAqua() {
-        Scanner in = new Scanner(System.in);
-        int waterChoice = in.nextInt();
-        System.out.println("With what kind off water should the aquarium be filled with?");
-        System.out.println("Enter 1 for saltwater\nEnter 2 for freshwater");
-
-        if (waterChoice == 1) {
-            System.out.println("Saltwater aquarium");
-        } else if (waterChoice == 2) {
-            System.out.println("Freshwater aquarium");
-        } else {
-            System.err.println("ERROR enter a valid number");
-        }
-
-    }
 
 
 }
