@@ -1,5 +1,3 @@
-package ch.noseryoung.blj;
-
 public class Fish {
 
     private String name;
@@ -7,7 +5,6 @@ public class Fish {
     private int xPos;
     private int yPos;
     private boolean isSaltWater;
-
 
     public Fish() {
     }
