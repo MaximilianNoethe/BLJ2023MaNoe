@@ -12,15 +12,18 @@ public class Aquarium {
     private int[][] aquarium;
 
     private String name;
+
     ArrayList<Fish> fish = new ArrayList<Fish>();
 
-    public Aquarium() {
-    }
 
     public Aquarium(int width, int length, boolean isSaltwater, String name) {
         this.aquarium = new int[width][length];
         this.isSaltwater = isSaltwater;
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
 
@@ -38,6 +41,7 @@ public class Aquarium {
         }
         System.out.println("▓");
     }
+
 
 
 

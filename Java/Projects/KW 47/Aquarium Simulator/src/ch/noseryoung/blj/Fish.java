@@ -3,27 +3,21 @@ package ch.noseryoung.blj;
 public class Fish {
 
     private String name;
-    private String color;
-    private int size;
-    private String gender;
-    private boolean isSaltWater;
     private String type;
     private int xPos;
     private int yPos;
+    private boolean isSaltWater;
 
 
     public Fish() {
     }
 
-    public Fish(String name, String color, int size, String gender, boolean isSaltWater, String type, int xPos, int yPos) {
+    public Fish(String name, String type, int xPos, int yPos, boolean isSaltWater) {
         this.name = name;
-        this.color = color;
-        this.size = size;
-        this.gender = gender;
-        this.isSaltWater = isSaltWater;
         this.type = type;
         this.xPos = xPos;
         this.yPos = yPos;
+        this.isSaltWater = isSaltWater;
     }
 
     public String getName() {
@@ -32,30 +26,6 @@ public class Fish {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public boolean isSaltWater() {
