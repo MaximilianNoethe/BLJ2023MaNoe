@@ -85,9 +85,8 @@ public class Simulation extends Thread {
              */
 
             for (int i = 0; i < field.length; i++) {
-                for (int j = 0; j < field[0].length; j++)
-                {
-                    int neighborCount = getNeighbourCount(i,j);
+                for (int j = 0; j < field[0].length; j++) {
+                    int neighborCount = getNeighbourCount(i, j);
                     System.out.print(field[i][j] + " ");
                 }
                 System.out.println();
@@ -124,17 +123,43 @@ public class Simulation extends Thread {
      * @param y The y-coordinate of a cell.
      * @return An int value representing the number of neighbours of a cell.
      */
+
+    /*
+     * TODO: Implement logic that counts the neighbours of a given cell. Neighbours
+     * are up to 8 living cells next to the cell in question, according to the
+     * comment above.
+     */
     private int getNeighbourCount(int x, int y) {
         int neighbourCount = 0;
+        int numRows = field.length;
+        int numCols = field[0].length;
 
-        /*
-         * TODO: Implement logic that counts the neighbours of a given cell. Neighbours
-         * are up to 8 living cells next to the cell in question, according to the
-         * comment above.
-         */
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if (i == x && j == y) {
+                    continue; // Somit wird die aktuelle Zelle übersprungen -> Aktuelle Zelle wird nicht in der Zählung von den Nachbarn mti einbezogen. Zum Beispiel 2.2 (Mitte)
+                }
+
+                if (wrapField) {
 
 
+                    int wrappedX = (i + numRows) % numRows;
+                    /* Das "wrapping" der koordinate wird durchgeführt. Das "+ numRows"
+                    macht, dass negative Werte zu postive "gewrapped" werden. "% numRows"
+                    sorgt, dass Werte, welche grösser als die Anzahl Zeilen sind, zrück "gewrapped" werden.
 
+
+                    */
+                    int wrappedY = (j + numCols) % numCols;
+
+                    if (field[wrappedX][wrappedY] == 1) { // Wenn die gewrappten Koordinaten eine lebende Zelle aufzegeine (1), dann wir der neighbourCount um eins erhöht.
+                        neighbourCount++;
+                    }
+                }
+            }
+
+
+        }
         return neighbourCount;
     }
 
