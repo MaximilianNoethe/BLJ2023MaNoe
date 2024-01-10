@@ -49,7 +49,7 @@ public class Main {
                             int length = in.nextInt();
                             in.nextLine();
 
-                            
+
                             System.out.println("Enter name of aquarium");
                             String nameA = in.nextLine();
 
