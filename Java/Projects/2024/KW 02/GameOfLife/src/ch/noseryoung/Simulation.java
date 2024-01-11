@@ -2,6 +2,7 @@ package ch.noseryoung;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Objects;
 
 /**
  * This class is responsible for handling and running a simulation of Conway's
@@ -96,17 +97,17 @@ public class Simulation extends Thread {
 
                     if (currentValue == 1) {
                         if (neighbourCount < 2) {
-                            currentValue = 0;
+                            newField[i][j] = 0;
                         } else if (neighbourCount == 2 || neighbourCount == 3) {
-                            currentValue = 1;
+                            newField[i][j] = 1;
                         } else if (neighbourCount > 3) {
-                            currentValue = 0;
+                            newField[i][j] = 0;
 
                         }
                     }
                     if (currentValue == 0) {
                         if (neighbourCount == 3) {
-                            currentValue = 1;
+                            newField[i][j] = 1;
                         }
                     }
 
@@ -124,6 +125,10 @@ public class Simulation extends Thread {
              * order to do that, call the method stopSimulation() under the right
              * circumstances.
              */
+
+            if (Objects.deepEquals(field, newField)){           // Array vergleichen -> This Gen vs. New Gen
+                stopSimulation();
+            }
 
             pCS.firePropertyChange("field", field, newField);
             field = newField;
@@ -161,13 +166,15 @@ public class Simulation extends Thread {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
 
-
+                if (i == 0 && j == 0) {
+                    continue;                   // skip cell 0.0
+                }
                 int relativeX = x + i;
                 int relativeY = y + j;
 
 
                 if (coordsInBounds(relativeX, relativeY)) { // Wenn die Koordinaten eine lebende Zelle aufzegein (1), dann wir der neighbourCount um eins erhöht.
-                    if (field[x + i][y + j] == 1 && i != 0 && j != 0) {
+                    if (field[x + i][y + j] == 1) {
                         neighbourCount++;
                     }
                 }
@@ -217,16 +224,18 @@ public class Simulation extends Thread {
          * bottom and in all directions.
          */
         /*
+        int numRow = field.length;
+        int numCol = field[0].length;
+
         int wrappedX = (i + numRow) % numRow;
+
                     /* Das "wrapping" der koordinate wird durchgeführt. Das "+ numRows"
                     macht, dass negative Werte zu postive "gewrapped" werden. "% numRows"
                     sorgt, dass Werte, welche grösser als die Anzahl Zeilen sind, zurück "gewrapped" werden.
-
-
                     */
-        /*
-        int wrappedY = (j + numCol) % numCol;
-        */
+/*
+        int wrappedY = Math.floorMod((j + numCol),  numCol);
+*/
 
 
         return 0;
