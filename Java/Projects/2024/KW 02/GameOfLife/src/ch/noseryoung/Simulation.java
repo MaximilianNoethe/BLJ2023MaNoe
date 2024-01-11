@@ -71,6 +71,9 @@ public class Simulation extends Thread {
     private void startSimulation() {
         while (running) {
 
+            int life = 1;
+            int dead = 0;
+
             /*
              * Changes from the current to the next generation get written into a new array,
              * instead of directly overwriting the old one. Why ist that?
@@ -85,13 +88,35 @@ public class Simulation extends Thread {
              */
 
             for (int i = 0; i < field.length; i++) {
-                for (int j = 0; j < field[0].length; j++) {
-                    int neighborCount = getNeighbourCount(i, j);
-                    System.out.print(field[i][j] + " ");
+
+                for (int j = 0; j < field[i].length; j++) {
+                    int current = field[i][j];
+                    int neighbourCount = getNeighbourCount(i, j);
+                    int currentValue = field[i][j];
+
+                    if (currentValue == 1) {
+                        if (neighbourCount < 2) {
+                            currentValue = 0;
+                        } else if (neighbourCount == 2 || neighbourCount == 3) {
+                            currentValue = 1;
+                        } else if (neighbourCount > 3) {
+                            currentValue = 0;
+
+                        }
+                    }
+                    if (currentValue == 0) {
+                        if (neighbourCount == 3) {
+                            currentValue = 1;
+                        }
+                    }
+
+
                 }
-                System.out.println();
+
             }
-            System.out.println();
+
+
+
 
 
             /*
@@ -131,34 +156,22 @@ public class Simulation extends Thread {
      */
     private int getNeighbourCount(int x, int y) {
         int neighbourCount = 0;
-        int numRows = field.length;
-        int numCols = field[0].length;
-
-        for (int i = x - 1; i <= x + 1; i++) {
-            for (int j = y - 1; j <= y + 1; j++) {
-                if (i == x && j == y) {
-                    continue; // Somit wird die aktuelle Zelle übersprungen -> Aktuelle Zelle wird nicht in der Zählung von den Nachbarn mti einbezogen. Zum Beispiel 2.2 (Mitte)
-                }
-
-                if (wrapField) {
 
 
-                    int wrappedX = (i + numRows) % numRows;
-                    /* Das "wrapping" der koordinate wird durchgeführt. Das "+ numRows"
-                    macht, dass negative Werte zu postive "gewrapped" werden. "% numRows"
-                    sorgt, dass Werte, welche grösser als die Anzahl Zeilen sind, zrück "gewrapped" werden.
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
 
 
-                    */
-                    int wrappedY = (j + numCols) % numCols;
+                int relativeX = x + i;
+                int relativeY = y + j;
 
-                    if (field[wrappedX][wrappedY] == 1) { // Wenn die gewrappten Koordinaten eine lebende Zelle aufzegeine (1), dann wir der neighbourCount um eins erhöht.
+
+                if (coordsInBounds(relativeX, relativeY)) { // Wenn die Koordinaten eine lebende Zelle aufzegein (1), dann wir der neighbourCount um eins erhöht.
+                    if (field[x + i][y + j] == 1 && i != 0 && j != 0) {
                         neighbourCount++;
                     }
                 }
             }
-
-
         }
         return neighbourCount;
     }
@@ -172,16 +185,19 @@ public class Simulation extends Thread {
      * @return A boolean value representing the fact whether a cell's coordinates
      * are valid or not.
      */
-    private boolean coordsInBounds(int x, int y) { // Wrapfield
 
-        /*
-         * TODO: Implement logic that checks if the given coordinates are in bounds,
-         * i.e. neither the x or y coordinate is negative or greater than the width or
-         * height of the simulation field.
-         */
+    /*
+     * TODO: Implement logic that checks if the given coordinates are in bounds,
+     * i.e. neither the x or y coordinate is negative or greater than the width or
+     * height of the simulation field.
+     */
+    private boolean coordsInBounds(int x, int y) {
 
-        return false;
+        return 0 <= x && x < field.length && 0 <= y && y < field[0].length;
+
+
     }
+
 
     /**
      * This helper method is used to count additional neighbours in the case of a
@@ -200,6 +216,18 @@ public class Simulation extends Thread {
          * can disappear at the right border and reappear on the left. Same for top and
          * bottom and in all directions.
          */
+        /*
+        int wrappedX = (i + numRow) % numRow;
+                    /* Das "wrapping" der koordinate wird durchgeführt. Das "+ numRows"
+                    macht, dass negative Werte zu postive "gewrapped" werden. "% numRows"
+                    sorgt, dass Werte, welche grösser als die Anzahl Zeilen sind, zurück "gewrapped" werden.
+
+
+                    */
+        /*
+        int wrappedY = (j + numCol) % numCol;
+        */
+
 
         return 0;
     }
