@@ -7,7 +7,6 @@ public class Value {
 
     Person person = new Person();
 
-
     void addValues(){
         System.out.println("Enter your age in years: ");
         int age = scanner.nextInt();
