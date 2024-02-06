@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        
+
         for (int pin = 0; pin <= 9999; pin++)
 
             if (pin < 10) {
