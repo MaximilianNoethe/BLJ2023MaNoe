@@ -17,7 +17,6 @@ public class Main {
             System.out.println("False, it's not a leapYear");
         }
 
-        System.out.println("The year " + year) ;
 
     }
 }

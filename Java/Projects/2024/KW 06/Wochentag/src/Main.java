@@ -31,7 +31,7 @@ public class Main {
         int day = input.nextInt();
 
 
-        System.out.println("Enter your month WARNING 01 -> FALSE, 1 -> CORRECT: ");
+        System.out.println("Enter your month (1-12): ");
         int month = input.nextInt();
 
 
@@ -70,6 +70,7 @@ public class Main {
         int val4 = val3 + centuryhValue;
 
         // Step 5.
+
 
 
     }
