@@ -5,6 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        String[] weekdays = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+
         ArrayList<Month> months = new ArrayList<Month>();
         months.add(new Month("January", 1, 1));
         months.add(new Month("February", 4, 2));
@@ -54,24 +56,46 @@ public class Main {
             }
         }
 
+        // Is for step 5 -> Subtract one Value from Jan. or Feb. if the year is a leap year.
+        boolean isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        if (isLeapYear && (month == 1 || month == 2)) {
+            monthValue--;
+        }
+
         int val2 = val1 + monthValue;
 
         // Step 3.
         int val3 = val2 + day;
 
         // Step 4.
-        int centuryhValue = 0;
+        int centuryValue = 0;
         for (int i = 0; i < centuries.size(); i++) {
             if (centuries.get(i).getCentury() == century) {
-                centuryhValue = centuries.get(i).getValue();
+                centuryValue = centuries.get(i).getValue();
                 break;
             }
         }
-        int val4 = val3 + centuryhValue;
+        int val4 = val3 + centuryValue;
 
         // Step 5.
+        // Look at step 2.
 
+        // Step 6.
+        int weekday = val4 % 7;
+        System.out.println("Your weekday is: " + weekdays[weekday]);
 
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
