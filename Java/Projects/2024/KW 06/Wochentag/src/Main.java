@@ -38,6 +38,8 @@ public class Main {
         System.out.println("Enter your year: ");
         int year = input.nextInt();
 
+        int century = year / 100;
+
         // Step 1.
         int yearDigit = year % 100; // Saves the last two digits of the number into the variable
 
@@ -60,12 +62,14 @@ public class Main {
         // Step 4.
         int centuryhValue = 0;
         for (int i = 0; i < centuries.size(); i++) {
-            if (centuries.get(i).getCentury() == month) {
+            if (centuries.get(i).getCentury() == century) {
                 centuryhValue = centuries.get(i).getValue();
                 break;
             }
         }
+        int val4 = val3 + centuryhValue;
 
+        // Step 5.
 
 
     }
