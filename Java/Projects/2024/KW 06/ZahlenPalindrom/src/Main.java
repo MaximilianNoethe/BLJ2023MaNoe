@@ -7,7 +7,9 @@ public class Main {
         ArrayList<Integer> digit = new ArrayList<>();
 
         System.out.println("Enter your number to test if its a palindrome: ");
-        int num = input.nextInt();
+        String num = input.next();
+
+
 
 
 
