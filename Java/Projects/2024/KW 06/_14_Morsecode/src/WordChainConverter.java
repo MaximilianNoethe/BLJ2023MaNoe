@@ -3,75 +3,34 @@ import java.util.*;
 public class WordChainConverter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a sentence: ");
-        String sentence = scanner.nextLine().replaceAll("\\s", ""); // Remove spaces
+        System.out.println("Enter a string:");
+        String input = scanner.nextLine();
 
-        String[] wordChain = convertToWordChain(sentence);
-        String[] morseCodeChain = convertToMorseCode(wordChain);
+        String wordChain = convertToWordChain(input);
 
-        System.out.println("Word Chain: " + String.join(" -> ", wordChain));
-        System.out.println("Morse Code Chain: " + String.join(" ", morseCodeChain));
+        System.out.println("Word Chain:");
+        System.out.println(wordChain);
 
         scanner.close();
     }
 
-    public static String[] convertToWordChain(String sentence) {
-        String[] wordChain = new String[sentence.length()];
-        wordChain[0] = String.valueOf(sentence.charAt(0)); // Add the first letter
+    public static String convertToWordChain(String input) {
+        StringBuilder wordChain = new StringBuilder();
+        String[] words = input.split("\\s+");
 
-        for (int i = 1; i < sentence.length(); i++) {
-            String prevLetter = wordChain[i - 1];
-            String currentLetter = String.valueOf(sentence.charAt(i));
-            wordChain[i] = currentLetter;
-        }
-
-        return wordChain;
-    }
-
-    public static String[] convertToMorseCode(String[] wordChain) {
-        String[] morseCodeChain = new String[wordChain.length];
-
-        for (int i = 0; i < wordChain.length; i++) {
-            StringBuilder morseCodeLetter = new StringBuilder();
-            for (char c : wordChain[i].toLowerCase().toCharArray()) {
-                morseCodeLetter.append(getMorseCode(c)).append(" ");
+        for (int i = 0; i < words.length - 1; i++) {
+            String word1 = words[i];
+            String word2 = words[i + 1];
+            if (word1.charAt(word1.length() - 1) != word2.charAt(0)) {
+                // If the last character of word1 is different from the first character of word2
+                // append word2 to the word chain
+                wordChain.append(word1);
             }
-            morseCodeChain[i] = morseCodeLetter.toString().trim();
         }
 
-        return morseCodeChain;
-    }
+        // Add the last word of the input string to the word chain
+        wordChain.append(words[words.length - 1]);
 
-    public static String getMorseCode(char c) {
-        switch (c) {
-            case 'a': return ".-";
-            case 'b': return "-...";
-            case 'c': return "-.-.";
-            case 'd': return "-..";
-            case 'e': return ".";
-            case 'f': return "..-.";
-            case 'g': return "--.";
-            case 'h': return "....";
-            case 'i': return "..";
-            case 'j': return ".---";
-            case 'k': return "-.-";
-            case 'l': return ".-..";
-            case 'm': return "--";
-            case 'n': return "-.";
-            case 'o': return "---";
-            case 'p': return ".--.";
-            case 'q': return "--.-";
-            case 'r': return ".-.";
-            case 's': return "...";
-            case 't': return "-";
-            case 'u': return "..-";
-            case 'v': return "...-";
-            case 'w': return ".--";
-            case 'x': return "-..-";
-            case 'y': return "-.--";
-            case 'z': return "--..";
-            default: return ""; // For unsupported characters, return empty string
-        }
+        return wordChain.toString();
     }
 }
-
