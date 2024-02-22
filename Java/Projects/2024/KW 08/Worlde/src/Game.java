@@ -21,34 +21,47 @@ public class Game {
 
 
     public void userWord() {
-        System.out.println("Enter your word: ");
-        String word = input.next();
+        int tries = 6;
 
-        String[] guess = word.split("");
+        while (true) {
 
-        if (wordToGuess.equals(wordToGuess)) {
-            System.out.println(ANSI_GREEN + word + ANSI_RESET);
-            System.out.println("Amazing! You Win!");
-        } else if (guess.length != 5) {
-            System.out.println("Your guess must be exactly 5 letters long");
+            System.out.println("Enter your word: ");
+            String word = input.next();
+            tries--;
 
-        } else {
-            compareLeter(guess, solutionParts);
+            String[] guess = word.split("");
+
+            if (word.equals(wordToGuess)) {
+                System.out.println(ANSI_GREEN + word + ANSI_RESET);
+                System.out.println("Amazing! You Win!");
+                break;
+            } else if (guess.length != 5) {
+                System.out.println("Your guess must be exactly 5 letters long");
+
+            } else if (tries == 0) {
+                System.out.println("You're out of tries, the today's wordle was: " + ANSI_GREEN + wordToGuess);
+                break;
+            } else {
+                compareLetter(guess, solutionParts);
+            }
         }
+
     }
 
 
-    private void compareLeter(String[] guess, String[] solutionParts) {
+    private void compareLetter(String[] guess, String[] solutionParts) {
         for (int i = 0; i < guess.length; i++) {
             if (guess[i].equals(solutionParts[i])) {
-                System.out.println(ANSI_GREEN + guess[i] + ANSI_RESET);
+                System.out.print(ANSI_GREEN + guess[i] + ANSI_RESET);
             } else if (wordToGuess.contains(guess[i])) {
-                System.out.println(ANSI_YELLOW + guess[i] + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + guess[i] + ANSI_RESET);
 
             } else {
-                System.out.println(ANSI_RED + guess[i] + ANSI_RESET);
+                System.out.print(ANSI_RED + guess[i] + ANSI_RESET);
             }
         }
+        System.out.println();
+        System.out.println();
     }
 
 }
