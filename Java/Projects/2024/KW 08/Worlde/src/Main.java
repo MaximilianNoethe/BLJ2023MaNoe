@@ -5,9 +5,9 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Game game = new Game();
 
-        game.startGame();
 
-        game.userWord();
+        game.introductionGame();
+
 
     }
 }
