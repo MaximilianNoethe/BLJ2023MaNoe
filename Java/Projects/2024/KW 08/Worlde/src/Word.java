@@ -37,7 +37,7 @@ public class Word {
             // randomWord gets a value from the arraylist (wordList) -> gets the next index (random) -> with a range (size of the array list (wordList))
             // Every word will turn into lower case
 
-            System.out.println(randomWord);
+
             return randomWord;
         }
 
