@@ -10,7 +10,7 @@ public class Game {
 
 
     Scanner input = new Scanner(System.in);
-    private Word word = new Word();
+    private Reader reader = new Reader();
     String wordToGuess;
     String[] resultParts;
     int tries = 6;
@@ -37,8 +37,8 @@ public class Game {
 
     public void gameStart() {
 
-        word.readFile("src\\wordlist.txt");
-        wordToGuess = word.getRandomWord();
+        reader.readFile("src\\wordlist.txt");
+        wordToGuess = reader.getRandomWord();
         resultParts = wordToGuess.split("");
         userWord();
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.Random;
 
-public class Word {
+public class Reader {
 
     ArrayList<String> wordlist = new ArrayList<>();
     Random random = new Random();
