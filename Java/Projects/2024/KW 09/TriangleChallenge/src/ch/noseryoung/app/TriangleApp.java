@@ -83,11 +83,8 @@ public class TriangleApp {
         System.out.println("COMPANY: " + company);
         System.out.println("HANDLER: " + handler);
         System.out.println("****************************************");
-        System.out.println();
-        System.out.println();
-        System.out.println("TEST CASES TRIANGLE");
-        System.out.println();
-        System.out.println();
+
+
     }
 
     /**
@@ -95,8 +92,11 @@ public class TriangleApp {
      */
     private void printResult() {
         // TODO: Print code
+        System.out.println();
         System.out.println("****************************************");
         System.out.println("CODE: " + code);
+        System.out.println("****************************************");
+        System.out.println();
     }
 
     /**
@@ -140,10 +140,7 @@ public class TriangleApp {
             } else {
                 System.out.println("Enter a valid input please!");
             }
-
         }
-
-        System.out.println("******************************");
     }
 
     /**
@@ -169,11 +166,13 @@ public class TriangleApp {
         }
         // TODO: Validate other triangle cases
 
-        else if (sideA < 0 || sideB < 0 || sideC < 0) {
-            throw new ZeroTriangleSideException();
-        } else if (sideA + sideB < sideC || sideA + sideC < sideB || sideB + sideC < sideA) {
+        if (sideA < 0 || sideB < 0 || sideC < 0) {
+            throw new NegativeTriangleSideException();
+        }
+        if (sideA + sideB < sideC || sideA + sideC < sideB || sideB + sideC < sideA) {
             throw new ImpossibleTriangleException();
-        } else if (sideA + sideB == sideC || sideA + sideC == sideB || sideB + sideC == sideA) {
+        }
+        if (sideA + sideB == sideC || sideA + sideC == sideB || sideB + sideC == sideA) {
             throw new TriangleIsLineException();
         }
 
@@ -193,12 +192,12 @@ public class TriangleApp {
         } else if (sideA == sideB || sideA == sideC || sideB == sideC) {
             // Gleichschenkliges Dreieck
             return "TRI84TF";
-        } else if (sideA + sideB > sideC || sideA + sideC > sideB || sideB + sideC > sideA) {
-            // Gewöhnliches Dreieck
-            return "TRI60TF";
         } else if ((sideA * sideA) + (sideB * sideB) == (sideC * sideC) || (sideA * sideA) + (sideC * sideC) == (sideB * sideB) || (sideB * sideB) + (sideC * sideC) == (sideA * sideA)) {
             // Rechtwinlkliges Dreieck
             return "TRI72TF";
+        } else if (sideA + sideB > sideC || sideA + sideC > sideB || sideB + sideC > sideA) {
+            // Gewöhnliches Dreieck
+            return "TRI60TF";
         }
         return null;
     }
