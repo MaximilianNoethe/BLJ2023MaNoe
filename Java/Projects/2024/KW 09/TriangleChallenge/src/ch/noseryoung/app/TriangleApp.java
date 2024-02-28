@@ -78,8 +78,6 @@ public class TriangleApp {
         System.out.println("****************************************");
         System.out.println("           TRIANGLE EVALUATOR           ");
         System.out.println("****************************************");
-        System.out.println();
-        System.out.println("****************************************");
         System.out.println("COMPANY: " + company);
         System.out.println("HANDLER: " + handler);
         System.out.println("****************************************");
@@ -139,6 +137,7 @@ public class TriangleApp {
                 selection = false;
             } else {
                 System.out.println("Enter a valid input please!");
+                System.out.println();
             }
         }
     }
