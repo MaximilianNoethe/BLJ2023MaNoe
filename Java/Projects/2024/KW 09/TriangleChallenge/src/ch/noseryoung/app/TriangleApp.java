@@ -6,7 +6,7 @@ import java.util.Scanner;
 // TODO: Import the exception [X]
 import ch.noseryoung.exceptions.*;
 
-
+import javax.crypto.spec.PSource;
 
 
 public class TriangleApp {
@@ -80,8 +80,14 @@ Scanner scanner = new Scanner(System.in);
     System.out.println("****************************************");
     System.out.println();
     System.out.println("****************************************");
-    System.out.println("COMPANY: "+company);
-    System.out.println("HANDLER: "+handler);
+    System.out.println("COMPANY: " + company);
+    System.out.println("HANDLER: " + handler);
+    System.out.println("****************************************");
+    System.out.println();
+    System.out.println();
+    System.out.println("TEST CASES TRIANGLE");
+    System.out.println();
+    System.out.println();
   }
 
   /**
@@ -89,6 +95,8 @@ Scanner scanner = new Scanner(System.in);
    */
   private void printResult() {
 	// TODO: Print code
+    System.out.println("****************************************");
+    System.out.println("CODE: " + code);
   }
 
   /**
@@ -100,7 +108,7 @@ Scanner scanner = new Scanner(System.in);
   private String promptSide(String side) {
     // TODO: Ask user for input
 
-    System.out.println("cathete"+side);
+    System.out.println("Enter side " + side + ": ");
 
       return scanner.nextLine();
   }
@@ -113,8 +121,27 @@ Scanner scanner = new Scanner(System.in);
    */
   private void promptAction() {
     String action = "";
+    boolean selection = true;
     // TODO: Get valid prompt
 	// TODO: Check if program needs to be cancelled (set isRunning to false)
+
+    while (selection){
+      System.out.println("<q> QUIT");
+      System.out.println("<c> CONTINUE");
+
+      action = scanner.nextLine();
+      
+      if (action.equals("c")){
+        isRunning = true;
+        selection = false;
+      } else if (action.equals("q")) {
+        isRunning = false;
+        selection = false;
+      } else {
+        System.out.println("Enter a valid input please!");
+      }
+
+    }
 	
     System.out.println("******************************");
   }
@@ -130,15 +157,26 @@ Scanner scanner = new Scanner(System.in);
     try {
       sideA = Double.parseDouble(sideAInput);
       // TODO: Do the same for sideB and SideC
-	  
+      sideB = Double.parseDouble(sideBInput);
+      sideC = Double.parseDouble(sideCInput);
     } catch (NumberFormatException nfe) {
+
+
       throw new IllegalTriangleSideException();
     }
 
     if (sideA == 0 || sideB == 0 || sideC == 0) {
       // TODO: throws ZeroTriangleSideException
+      throw new ZeroTriangleSideException();
     }
 	// TODO: Validate other triangle cases
+
+    else if (sideA < 0 || sideB < 0 || sideC < 0) {
+      throw new ZeroTriangleSideException();
+    } else if () {
+      
+    }
+
   }
 
   /**
@@ -149,6 +187,19 @@ Scanner scanner = new Scanner(System.in);
    */
   private String determineTriangleType() {
     // TODO: Based on sideA, sideB, sideC, return correct code
+    if(sideA == sideB && sideB == sideC){
+      // Gleichseitiges Dreieck
+      return "TRI66TF";
+    } else if(sideA == sideB || sideA == sideC || sideB == sideC){
+      // Gleichschenkliges Dreieck
+      return "TRI84TF";
+    } else if(sideA + sideB > sideC || sideA + sideC > sideB || sideB + sideC > sideA){
+      // Gewöhnliches Dreieck
+      return "TRI60TF";
+    } else if((sideA * sideA) + (sideB * sideB) == (sideC * sideC) || (sideA * sideA) + (sideC * sideC) == (sideB * sideB) || (sideB * sideB) + (sideC * sideC) == (sideA * sideA)){
+      // Rechtwinlkliges Dreieck
+      return "TRI72TF";
+    }
     return null;
   }
 }
