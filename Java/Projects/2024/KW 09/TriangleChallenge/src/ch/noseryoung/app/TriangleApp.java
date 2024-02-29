@@ -3,14 +3,13 @@ package ch.noseryoung.app;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-// TODO: Import the exception [X]
 import ch.noseryoung.exceptions.*;
 
 import javax.crypto.spec.PSource;
 
 
 public class TriangleApp {
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     private String company;
     private String handler;
@@ -34,10 +33,8 @@ public class TriangleApp {
      * @param handler of type String to print in the application header
      */
     public TriangleApp(String company, String handler) {
-        // TODO: Persist company and handler in the intended fields
         this.company = company;
         this.handler = handler;
-        // TODO: Set field isRunning to true
         isRunning = true;
 
 
@@ -51,8 +48,6 @@ public class TriangleApp {
         printHeader();
         while (isRunning) {
             System.out.println("\nTEST CASES TRIANGLE\n");
-
-            // TODO: Ask user for all 3 sides and assign to intended fields
 
             sideAInput = promptSide("A");
             sideBInput = promptSide("B");
@@ -74,13 +69,20 @@ public class TriangleApp {
      * This method prints the application header.
      */
     private void printHeader() {
-        // TODO: Print a fancy app header with handler, company and current year
+        System.out.println("""
+                ****************************************
+                           TRIANGLE EVALUATOR           
+                ****************************************
+                                
+                """);
         System.out.println("****************************************");
         System.out.println("           TRIANGLE EVALUATOR           ");
         System.out.println("****************************************");
-        System.out.println("COMPANY: " + company);
+        System.out.println("COMPANY: " + company + LocalDate.now().getYear());
         System.out.println("HANDLER: " + handler);
         System.out.println("****************************************");
+
+        // tripple " for sout
 
 
     }
@@ -89,7 +91,6 @@ public class TriangleApp {
      * This method prints the evaluated code in an aesthetically pleasing way.
      */
     private void printResult() {
-        // TODO: Print code
         System.out.println();
         System.out.println("****************************************");
         System.out.println("CODE: " + code);
@@ -104,7 +105,7 @@ public class TriangleApp {
      * @return the input of type String.
      */
     private String promptSide(String side) {
-        // TODO: Ask user for input
+
 
         System.out.println("Enter side " + side + ": ");
 
@@ -120,8 +121,6 @@ public class TriangleApp {
     private void promptAction() {
         String action = "";
         boolean selection = true;
-        // TODO: Get valid prompt
-        // TODO: Check if program needs to be cancelled (set isRunning to false)
 
         while (selection) {
             System.out.println("<q> QUIT");
@@ -129,7 +128,8 @@ public class TriangleApp {
 
             action = scanner.nextLine();
 
-            if (action.equals("c")) {
+            //if (action.equals("c")) {
+            if ("c".equals(action)) {
                 isRunning = true;
                 selection = false;
             } else if (action.equals("q")) {
@@ -152,7 +152,6 @@ public class TriangleApp {
     private void validateInput() throws TriangleException {
         try {
             sideA = Double.parseDouble(sideAInput);
-            // TODO: Do the same for sideB and SideC
             sideB = Double.parseDouble(sideBInput);
             sideC = Double.parseDouble(sideCInput);
         } catch (NumberFormatException nfe) {
@@ -160,10 +159,8 @@ public class TriangleApp {
         }
 
         if (sideA == 0 || sideB == 0 || sideC == 0) {
-            // TODO: throws ZeroTriangleSideException
             throw new ZeroTriangleSideException();
         }
-        // TODO: Validate other triangle cases
 
         if (sideA < 0 || sideB < 0 || sideC < 0) {
             throw new NegativeTriangleSideException();
@@ -184,7 +181,6 @@ public class TriangleApp {
      * @return The corresponding code for each triangle.
      */
     private String determineTriangleType() {
-        // TODO: Based on sideA, sideB, sideC, return correct code
         if (sideA == sideB && sideB == sideC) {
             // Gleichseitiges Dreieck
             return "TRI66TF";
