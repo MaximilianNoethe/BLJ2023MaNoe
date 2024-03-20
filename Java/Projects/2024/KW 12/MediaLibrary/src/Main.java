@@ -89,7 +89,8 @@ public class Main {
                     Videogames (v)
                     Songs (s)
                     Everything (a)
-                    
+                                        
+                    --Other--
                     Exit (x)
                                     
                     Please enter your choice:""");
