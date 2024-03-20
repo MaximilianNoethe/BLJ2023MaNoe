@@ -6,7 +6,7 @@ public class Song extends Media {
     public void printInfo() {
         super.printInfo();
         String songInfo = "Singer: " + singer +
-                "\nDuration: " + duration;
+                "\nDuration: " + duration + " min";
 
 
         System.out.println(songInfo);
