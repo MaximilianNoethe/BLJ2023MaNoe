@@ -1,0 +1,7 @@
+
+}
+java:S1488$"bImmediately return this expression instead of assigning it to the temporary variable "randomWord".(ûç˜üÿÿÿÿ
+`
+java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(£Å·ûÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(Àûå 
+?	java:S106!"+Replace this use of System.out by a logger.(âï¿U

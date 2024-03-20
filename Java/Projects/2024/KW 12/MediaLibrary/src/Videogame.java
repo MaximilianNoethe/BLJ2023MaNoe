@@ -6,11 +6,14 @@ public class Videogame extends Media {
     @Override
     public void printInfo() {
         super.printInfo();
-        String videogameInfo = "\nPublisher: " + publisher +
+        String videogameInfo = "Publisher: " + publisher +
                 "\nPlatform: " + platform +
-                "\nSize: " + size + "GB";
+                "\nSize: " + size + " GB";
 
         System.out.println(videogameInfo);
+        System.out.println();
+        System.out.println("***********************************************");
+        System.out.println();
     }
 
     public Videogame(String name, String language, String genre, Double price, String publisher, String platform, int size) {
@@ -20,6 +23,5 @@ public class Videogame extends Media {
         this.platform = platform;
         this.size = size;
     }
-
 
 }

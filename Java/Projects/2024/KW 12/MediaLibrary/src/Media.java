@@ -4,6 +4,7 @@ public class Media {
     private String genre;
     private Double price;
 
+
     public void printInfo() {
         String info = "Name: " + name +
                 "\nLanguage: " + language +
@@ -19,6 +20,5 @@ public class Media {
         this.genre = genre;
         this.price = price;
     }
-
 
 }

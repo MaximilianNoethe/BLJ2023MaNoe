@@ -6,10 +6,13 @@ public class Book extends Media {
     @Override
     public void printInfo() {
         super.printInfo();
-        String bookInfo = "\nAuthor: " + author +
+        String bookInfo = "Author: " + author +
                 "\nPages: " + pageCount;
 
         System.out.println(bookInfo);
+        System.out.println();
+        System.out.println("***********************************************");
+        System.out.println();
 
     }
 
@@ -19,6 +22,5 @@ public class Book extends Media {
         this.author = author;
         this.pageCount = pageCount;
     }
-
 
 }
