@@ -1,8 +1,19 @@
 
 ‹
-java:S1192
-"HDefine a constant instead of duplicating this literal "English" 9 times.(°¦θ8΅Ω’βε1J$64e593cb-3bf8-4b86-b931-8893ec903abd
-m	java:S106N"+Replace this use of System.out by a logger.(Ξρλ8»Ω’βε1J$6785db29-bcf3-4e10-938d-1805e282bfa7
-d	java:S131\""Add a default case to this switch.(™Οκƒ8»Ω’βε1J$9a8000e6-ea90-4a70-bd44-320f7ee1d600
-s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(χ‰ξƒ8π’βε1J$18ff034c-0c2a-41f2-ab49-4028e867bc59
+java:S1192"HDefine a constant instead of duplicating this literal "English" 9 times.(°¦θ8ÿϋ§βε1J$284a5f96-e546-483e-91b8-9f13648e78df
+
+java:S1854
+"9Remove this useless assignment to local variable "songs".(†®ΆΌϋÿÿÿÿ8‡ό§βε1J$3f241b6f-b195-4c6a-9cf5-88c2f34b833b
+†
+java:S1854	">Remove this useless assignment to local variable "videogames".(§‡Αώÿÿÿÿ8‡ό§βε1J$ef180e4e-0aef-4779-9bce-945033388ce9
+
+java:S1854"9Remove this useless assignment to local variable "books".(Χή·‚όÿÿÿÿ8‡ό§βε1J$10cf2a26-5a34-4cad-8ce6-b0bd93b6864b
+r
+java:S1481"*Remove this unused "books" local variable.(Χή·‚όÿÿÿÿ8ό§βε1J$87eddc1d-0616-4773-82f6-30eb0701e5f8
+w
+java:S1481	"/Remove this unused "videogames" local variable.(§‡Αώÿÿÿÿ8ό§βε1J$3b720d11-0ae6-4c70-a245-49b2f30a3ed2
+r
+java:S1481
+"*Remove this unused "songs" local variable.(†®ΆΌϋÿÿÿÿ8ό§βε1J$f61384b8-cba4-45eb-be23-5102e4a148ca
+m	java:S106R"+Replace this use of System.out by a logger.(Ξρλ8ό§βε1J$507b0f73-daea-4af4-b578-762b2e87276e
+d	java:S131`""Add a default case to this switch.(™Οκƒ8ό§βε1J$3753535f-5f4b-43d2-a784-98175702a41f

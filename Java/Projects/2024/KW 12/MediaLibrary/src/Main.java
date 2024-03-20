@@ -5,7 +5,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-       
+        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Videogame> videogames = new ArrayList<>();
+        ArrayList<Song> songs = new ArrayList<>();
+
+
         Book b1 = new Book("Heroes of Olympus: The Blood of Olympus",
                 "English",
                 "Fantasy, Young Adult",
