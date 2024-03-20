@@ -1,19 +1,14 @@
 
 ‹
-java:S1192"HDefine a constant instead of duplicating this literal "English" 9 times.(°¦Ÿè8ÿû§âå1J$284a5f96-e546-483e-91b8-9f13648e78df
-
-java:S1854
-"9Remove this useless assignment to local variable "songs".(†®¢¼ûÿÿÿÿ8‡ü§âå1J$3f241b6f-b195-4c6a-9cf5-88c2f34b833b
-†
-java:S1854	">Remove this useless assignment to local variable "videogames".(Ÿ§‡Áşÿÿÿÿ8‡ü§âå1J$ef180e4e-0aef-4779-9bce-945033388ce9
-
-java:S1854"9Remove this useless assignment to local variable "books".(×Ş·‚üÿÿÿÿ8‡ü§âå1J$10cf2a26-5a34-4cad-8ce6-b0bd93b6864b
-r
-java:S1481"*Remove this unused "books" local variable.(×Ş·‚üÿÿÿÿ8Œü§âå1J$87eddc1d-0616-4773-82f6-30eb0701e5f8
-w
-java:S1481	"/Remove this unused "videogames" local variable.(Ÿ§‡Áşÿÿÿÿ8Œü§âå1J$3b720d11-0ae6-4c70-a245-49b2f30a3ed2
-r
-java:S1481
-"*Remove this unused "songs" local variable.(†®¢¼ûÿÿÿÿ8ü§âå1J$f61384b8-cba4-45eb-be23-5102e4a148ca
-m	java:S106R"+Replace this use of System.out by a logger.(Îñë8ü§âå1J$507b0f73-daea-4af4-b578-762b2e87276e
-d	java:S131`""Add a default case to this switch.(™Ïêƒ8ü§âå1J$3753535f-5f4b-43d2-a784-98175702a41f
+java:S1192"HDefine a constant instead of duplicating this literal "English" 9 times.(°¦Ÿè8÷í½ãå1J$af7bd3a5-afec-4ac3-959b-b7cb0d6704ac
+p
+java:S5411Q"(Use a primitive boolean expression here.(” ÿÿÿÿÿ8‡î½ãå1J$6b2b07d2-2d93-42df-9877-968c81935ab3
+•
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(Çµí‘8Ÿî½ãå1J$9a8fa634-9648-4cbd-bb47-2803f9ffa7b9
+m	java:S106R"+Replace this use of System.out by a logger.(Îñë8§î½ãå1J$7e9587e4-8501-4877-b49b-f09c6d8e704a
+r	java:S106d"+Replace this use of System.out by a logger.(»Ì·óüÿÿÿÿ8§î½ãå1J$90383cb1-3044-4c92-8363-a67defad7980
+r	java:S106o"+Replace this use of System.out by a logger.(ä»ÿËøÿÿÿÿ8§î½ãå1J$7bfb2ee1-7a5d-4b34-84f7-3be409857cfa
+m	java:S106z"+Replace this use of System.out by a logger.(´ªï8·î½ãå1J$fdd79095-2b70-46e3-a677-6acb0ba60441
+s	java:S106„"+Replace this use of System.out by a logger.(ÿñÂ°ÿÿÿÿÿ8·î½ãå1J$f53ba16e-26f1-4545-aef1-eff9e7660186
+s	java:S106Œ"+Replace this use of System.out by a logger.(®ğ Øùÿÿÿÿ8·î½ãå1J$c5687387-3ff9-42de-a5b8-8fa3c489de76
+s	java:S106"+Replace this use of System.out by a logger.(®ëÎ§úÿÿÿÿ8·î½ãå1J$66eb84b8-b6da-4e34-8640-310ed2ba0a1f
