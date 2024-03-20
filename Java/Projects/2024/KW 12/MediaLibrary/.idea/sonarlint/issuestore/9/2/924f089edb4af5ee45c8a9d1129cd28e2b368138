@@ -1,4 +1,23 @@
 
-V
-java:S1220""Move this file to a named package.J$fcc882b9-126b-41ab-b243-7566a9123bc4
-k	java:S106"+Replace this use of System.out by a logger.(‚ήΟ¥ύÿÿÿÿJ$3336616a-0643-488b-a06c-383cfb941ae6
+‹
+java:S1192"HDefine a constant instead of duplicating this literal "English" 5 times.(°¦θ8΄–¦ίε1J$95c2d1fc-a179-4b8f-b35c-7ee728d5210a
+y
+java:S1854%"6Remove this useless assignment to local variable "v3".(¬Γ»Ϋ8Δƒ“ίε1J$8350c8d5-6f70-40d8-8062-16ae664c70d8
+y
+java:S1854"6Remove this useless assignment to local variable "v2".(Λ—Ξ8Δƒ“ίε1J$1b14ce49-a3bc-409d-a7cf-083e9c6e319a
+y
+java:S1854"6Remove this useless assignment to local variable "v1".(‰Δ§§8Δƒ“ίε1J$6102c24c-bf16-49af-b098-7dbe9fb57518
+~
+java:S1854"6Remove this useless assignment to local variable "b3".(‚η¬ϋÿÿÿÿ8Δƒ“ίε1J$9ef65024-bbe9-49ac-a643-a2adf000b91c
+~
+java:S1854"6Remove this useless assignment to local variable "b2".(‘Ψ ‡ωÿÿÿÿ8Δƒ“ίε1J$0a496ed8-ded3-4a78-9542-12b1f3ef321e
+o
+java:S1481"'Remove this unused "b2" local variable.(‘Ψ ‡ωÿÿÿÿ8Δƒ“ίε1J$47be25db-fc2d-49b1-9f0d-4acd3f4e3b4f
+o
+java:S1481"'Remove this unused "b3" local variable.(‚η¬ϋÿÿÿÿ8Δƒ“ίε1J$7d50c7cf-725a-4ab2-9b3c-9e2741370a26
+j
+java:S1481"'Remove this unused "v1" local variable.(‰Δ§§8„€§ίε1J$ef493aaa-854a-445a-ab5a-ce4ed7b0145a
+j
+java:S1481"'Remove this unused "v2" local variable.(Λ—Ξ8Δƒ“ίε1J$33779074-8059-46c3-af4e-a035ba76d2f4
+j
+java:S1481%"'Remove this unused "v3" local variable.(¬Γ»Ϋ8Δƒ“ίε1J$48fa47fa-ddc7-439a-a10f-0b4bd6491e74
