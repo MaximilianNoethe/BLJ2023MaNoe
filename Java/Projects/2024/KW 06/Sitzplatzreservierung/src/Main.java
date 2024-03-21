@@ -21,8 +21,11 @@ public class Main {
 
     public static void printArena(char[][] arena) {
         for (int i = 0; i < arena.length; i++) {
-            for (int j = 0; j < arena[i].length; j++) {
-                System.out.print(arena[i][j] + " ");
+            int firstLineLength = i;
+            for (int j = 0; j < firstLineLength; j++) {
+                if (j < arena[i].length) {
+                    System.out.print(arena[i][j] + " ");
+                }
             }
             System.out.println();
         }
