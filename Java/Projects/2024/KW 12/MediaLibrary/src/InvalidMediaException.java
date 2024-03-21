@@ -1,5 +1,5 @@
-public class InvalidMediaException extends Exception{
-    public InvalidMediaException(String errorMessage){
+public class InvalidMediaException extends Exception {
+    public InvalidMediaException(String errorMessage) {
         super(errorMessage);
     }
 }
