@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidMediaException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -35,7 +35,7 @@ public class Main {
                 "English",
                 "Action RPG, Souls-Like",
                 69.90,
-                "Banda Namco Entertainment",
+                "Bandai Namco Entertainment",
                 "Console and PC",
                 75));
 
@@ -78,75 +78,80 @@ public class Main {
                 3.09));
 
         Boolean exit = false;
-        while (!exit) {
-            System.out.println("""
-                    Welcome to the coolest media library
-                                    
-                    What kind of media do you want to see?
-                                    
-                    --Media--
-                    Books (b)
-                    Videogames (v)
-                    Songs (s)
-                    Everything (a)
+
+        try {
+            while (!exit) {
+                System.out.println("""
+                        Welcome to the coolest media library
                                         
-                    --Other--
-                    Exit (x)
-                                    
-                    Please enter your choice:""");
-            String input = scanner.next();
+                        What kind of media do you want to see?
+                                        
+                        --Media--
+                        Books (b)
+                        Videogames (v)
+                        Songs (s)
+                        Everything (a)
+                                            
+                        --Other--
+                        Exit (x)
+                                        
+                        Please enter your choice:""");
+                String input = scanner.next();
 
-            switch (input) {
-                case "b":
-                    System.out.println("Books:");
-                    for (Media media : medias) {
-                        if (media instanceof Book) {
+                switch (input) {
+                    case "b":
+                        System.out.println("Books:");
+                        for (Media media : medias) {
+                            if (media instanceof Book) {
+                                media.printInfo();
+                            }
+
+                        }
+                        break;
+
+
+                    case "v":
+                        System.out.println("Videogames:");
+                        for (Media media : medias) {
+                            if (media instanceof Videogame) {
+                                media.printInfo();
+                            }
+
+                        }
+                        break;
+
+
+                    case "s":
+                        System.out.println("Songs:");
+                        for (Media media : medias) {
+                            if (media instanceof Song) {
+                                media.printInfo();
+                            }
+
+                        }
+                        break;
+
+                    case "a":
+                        System.out.println("Everything:");
+                        for (Media media : medias) {
                             media.printInfo();
                         }
+                        break;
 
-                    }
-                    break;
+                    case "x":
+                        exit = true;
+                        System.out.println("Thank you for visiting my Media-library, see you next time!");
+                        break;
 
-
-                case "v":
-                    System.out.println("Videogames:");
-                    for (Media media : medias) {
-                        if (media instanceof Videogame) {
-                            media.printInfo();
-                        }
-
-                    }
-                    break;
+                    default:
+                        throw new InvalidMediaException("Invalid media selection: " + input);
 
 
-                case "s":
-                    System.out.println("Songs:");
-                    for (Media media : medias) {
-                        if (media instanceof Song) {
-                            media.printInfo();
-                        }
-
-                    }
-                    break;
-
-                case "a":
-                    System.out.println("Everything:");
-                    for (Media media : medias) {
-                        media.printInfo();
-                    }
-                    break;
-
-                case "x":
-                    exit = true;
-                    System.out.println("Thank you for visiting my Media-library, see you next time!");
-                    break;
-
-                default:
-                    System.out.println("Invalid input");
-                    break;
-
-
+                }
             }
+        } catch (InvalidMediaException ime) {
+            System.out.println(ime.getMessage());
+
         }
     }
 }
