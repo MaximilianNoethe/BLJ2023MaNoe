@@ -1,6 +1,9 @@
 import { Grid } from "@mui/material";
 
+
 export function RandomCatList() {
+
+
   return (
     <>
       <Grid>
