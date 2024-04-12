@@ -6,7 +6,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="ayah/:ayahId" Component={ShowAyah} />
+          <Route path="ayah/:ayahId/en.asad" Component={ShowAyah} />
         </Routes>
       </BrowserRouter>
     </>
