@@ -1,36 +1,56 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import QuranService from "../../Service/QuranDataService";
-
-
-
+import { Grid, TextField } from "@mui/material";
 
 function ShowAyah() {
-const { ayahId } = useParams();
-const [number, setNumber] = useState(0);
-const [text, setText] = useState("");
+  const { ayahId } = useParams();
+  const [number, setNumber] = useState();
+  const [text, setText] = useState("");
 
-useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
-        try{
-            const quranData = await QuranService().getAyahById(ayahId);
-            setNumber(quranData.number);
-            setText(quranData.text);
-        } catch(error){
-            alert("Id was not found.");
-        }
+      try {
+        const quranData = await QuranService().getAyahById(ayahId);
+        const { number, text } = quranData.data;
+        setNumber(number);
+        setText(text);
+      } catch (error) {
+        alert("Id was not found.");
+      }
     };
 
     fetchData();
-
-}, [ayahId]);
-
+  }, [ayahId]);
 
   return (
     <>
-   
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <TextField
+            id="outlined-required-read-only-input"
+            label="Ayah-Number"
+            value={number}
+            InputProps={{
+              readOnly: true,
+            }}
+          />
+          <br />
+          <br />
+          <TextField
+            id="outlined-required-read-only-input"
+            label="Ayah-Text"
+            value={text}
+            multiline
+            fullWidth
+            InputProps={{
+              readOnly: true,
+            }}
+          />
+        </Grid>
+      </Grid>
     </>
-  )
+  );
 }
 
-export default ShowAyah
+export default ShowAyah;
