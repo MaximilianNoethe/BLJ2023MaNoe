@@ -1,3 +1,5 @@
+// 6236 Ayas exists
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QuranService from "../../Service/QuranDataService";
