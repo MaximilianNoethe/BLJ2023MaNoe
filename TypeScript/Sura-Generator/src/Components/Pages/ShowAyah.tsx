@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QuranService from "../../Service/QuranDataService";
 import { Grid, TextField } from "@mui/material";
+import Navbar from "../Molecule/Navbar";
 
 function ShowAyah() {
   const { ayahId } = useParams();
@@ -25,6 +26,9 @@ function ShowAyah() {
 
   return (
     <>
+      <Navbar />
+      <br />
+      <br />
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField
