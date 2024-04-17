@@ -2,7 +2,7 @@ import java.awt.Point;
 
 public class CSPoint extends Point {
     private static int count;
-    private final int id;
+    private int id;
 
 
     public CSPoint(int x, int y) {
@@ -13,12 +13,13 @@ public class CSPoint extends Point {
 
     public CSPoint() {
         this(0, 0);
+        this.id = ++count;
     }
 
 
     @Override
     public String toString() {
-        return "ID= " + id + "X= " + x + "Y= " + y;
+        return "ID=" + id + " X=" + x + " Y=" + y;
     }
 
 }
