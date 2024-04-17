@@ -1,2 +1,24 @@
-public class CSPoint {
+import java.awt.Point;
+
+public class CSPoint extends Point {
+    private static int count;
+    private final int id;
+
+
+    public CSPoint(int x, int y) {
+        super(x, y);
+
+        this.id = ++count;
+    }
+
+    public CSPoint() {
+        this(0, 0);
+    }
+
+
+    @Override
+    public String toString() {
+        return "ID= " + id + "X= " + x + "Y= " + y;
+    }
+
 }
