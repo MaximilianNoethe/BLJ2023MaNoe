@@ -1,11 +1,21 @@
+import java.awt.*;
+
 public class CSLineSegment {
 
-    public CSPoint startPoint;
-    public CSPoint endPoint;
+    private CSPoint startPoint;
+    private CSPoint endPoint;
 
-    public CSLineSegment(CSPoint startPoint, CSPoint endPoint) {
+    private Color color;
+
+    public CSLineSegment(CSPoint startPoint, CSPoint endPoint, Color color) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+        this.color = color;
+    }
+
+
+    public Color getColor() {
+        return color;
     }
 
     public CSPoint getStartPoint() {

@@ -14,6 +14,10 @@ public class CoordinateSystem {
         lines.add(line);
     }
 
+    public void addLines(CSLineSegment... lines) {
+
+    }
+
     public List<CSLineSegment> getAllLines() {
         return lines;
     }

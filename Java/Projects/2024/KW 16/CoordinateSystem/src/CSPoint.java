@@ -13,7 +13,6 @@ public class CSPoint extends Point {
 
     public CSPoint() {
         this(0, 0);
-        this.id = ++count;
     }
 
 

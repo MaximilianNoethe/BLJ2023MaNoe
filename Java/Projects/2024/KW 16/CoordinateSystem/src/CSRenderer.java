@@ -112,15 +112,9 @@ public class CSRenderer extends JPanel {
 
         // all lines
         for (CSLineSegment line : cs.getAllLines()) {
-            CSLineSegment translatedLineSegment = new CSLineSegment(translatePoint(line.getStartPoint()), (translatePoint(line.getEndPoint())));
-            g2d.setColor(Color.MAGENTA);
+            CSLineSegment translatedLineSegment = new CSLineSegment(translatePoint(line.getStartPoint()), translatePoint(line.getEndPoint()), line.getColor());
+            g2d.setColor(translatedLineSegment.getColor());
             g2d.drawLine(translatedLineSegment.getStartPoint().x, translatedLineSegment.getStartPoint().y, translatedLineSegment.getEndPoint().x, translatedLineSegment.getEndPoint().y);
-
-            /*
-            CSPoint startPoint = translatePoint(line.startPoint);
-            CSPoint endPoint = translatePoint(line.endPoint);
-            g2d.setColor(Color.MAGENTA);
-            g2d.drawLine(startPoint.x, endPoint.y, startPoint.x, endPoint.y);*/
         }
     }
 
@@ -152,8 +146,7 @@ public class CSRenderer extends JPanel {
                 for (CSPoint point : cs.getAllPoints()) {
                     CSPoint tp = translatePoint(point);
 
-                    if ((me.getPoint().x >= tp.x - scaledLeeway && me.getPoint().x <= tp.x + scaledLeeway)
-                            && (me.getPoint().y >= tp.y - scaledLeeway && me.getPoint().y <= tp.y + scaledLeeway)) {
+                    if ((me.getPoint().x >= tp.x - scaledLeeway && me.getPoint().x <= tp.x + scaledLeeway) && (me.getPoint().y >= tp.y - scaledLeeway && me.getPoint().y <= tp.y + scaledLeeway)) {
                         mainFrame.setTitle(point.toString());
                     }
                 }
