@@ -14,6 +14,7 @@ public class CoordinateSystem {
         lines.add(line);
     }
 
+    // Method to add lines with one add statement
     public void addLines(CSLineSegment... lines) {
 
     }
