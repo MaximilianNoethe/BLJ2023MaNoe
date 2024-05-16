@@ -67,9 +67,9 @@ public class CSRenderer extends JPanel {
      *
      * @param cs The coordinate system (including all points) to draw.
      */
-    public CSRenderer(CoordinateSystem cs) {
+  /*  public CSRenderer(CoordinateSystem cs) {
         this(cs, 1, 3);
-    }
+    }*/
 
     /**
      * This method gets called automagically once the panel, where the coordinate
@@ -102,9 +102,10 @@ public class CSRenderer extends JPanel {
         g2d.setColor(Color.RED);
         g2d.drawLine(OFFSET_MID, OFFSET_MID, OFFSET_MID, OFFSET_MID);
 
-        // all points
         g2d.setStroke(new BasicStroke(pointSize));
-        for (CSPoint point : cs.getAllPoints()) {
+
+        // all points
+        /*for (CSPoint point : cs.getAllPoints()) {
             CSPoint translatedPoint = translatePoint(point);
             g2d.setColor(Color.BLUE);
             g2d.drawLine(translatedPoint.x, translatedPoint.y, translatedPoint.x, translatedPoint.y);
@@ -115,8 +116,14 @@ public class CSRenderer extends JPanel {
             CSLineSegment translatedLineSegment = new CSLineSegment(translatePoint(line.getStartPoint()), translatePoint(line.getEndPoint()), line.getColor());
             g2d.setColor(translatedLineSegment.getColor());
             g2d.drawLine(translatedLineSegment.getStartPoint().x, translatedLineSegment.getStartPoint().y, translatedLineSegment.getEndPoint().x, translatedLineSegment.getEndPoint().y);
+        }*/
+
+        for (Printable shapes : cs.getAllShapes()) {
+            shapes.draw(g2d, fieldScale, size);
         }
     }
+
+
 
     /**
      * This method is responsible for converting a Java Swing absolute position

@@ -30,4 +30,5 @@ public class CSLineSegment {
     public String toString() {
         return "Start=" + startPoint + " End=" + endPoint;
     }
+
 }
