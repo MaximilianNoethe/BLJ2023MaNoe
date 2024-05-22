@@ -7,11 +7,6 @@ public class Starter {
 
         cs.addShape(new CSPoint(30, 60));
 
-
-        /*cs.addPoint(new CSPoint(30, 60));
-
-        cs.addLine(new CSLineSegment(new CSPoint(59, 10), new CSPoint(-84, 72), Color.MAGENTA));*/
-
         new CSRenderer(cs, 1, 3);
     }
 }

@@ -6,7 +6,6 @@ public class CoordinateSystem {
 
     private ArrayList<Printable> shapes = new ArrayList<>();
     private List<CSPoint> points = new ArrayList<CSPoint>();
-
     private List<CSLineSegment> lines = new ArrayList<CSLineSegment>();
 
     private int size;
