@@ -2,6 +2,6 @@ package exceptions;
 
 public class MinorAgeException extends ContractException{
     public MinorAgeException(){
-        super("ERROR");
+        super("You are too young to rent this car.");
     }
 }
