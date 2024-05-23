@@ -18,9 +18,9 @@ public class VehicleRentalManager {
         this.contracts = new ArrayList<Contract>();
     }
 
-    private int MINIMUM_AGE = 22;
+    private final int MINIMUM_AGE = 22;
 
-    private void createContract(Contract contract) throws DenyListedPersonException, MinorAgeException {
+    public void createContract(Contract contract) throws DenyListedPersonException, MinorAgeException {
         Person person = contract.getPerson();
         if (denyList.contains(person)) {
             throw new DenyListedPersonException();
@@ -28,6 +28,7 @@ public class VehicleRentalManager {
             throw new MinorAgeException();
         } else {
             contracts.add(contract);
+            System.out.println("Thank you for signing the contract!");
         }
     }
 
@@ -42,10 +43,6 @@ public class VehicleRentalManager {
 
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
-    }
-
-    public void addContract(Contract contract) {
-        contracts.add(contract);
     }
 
 
