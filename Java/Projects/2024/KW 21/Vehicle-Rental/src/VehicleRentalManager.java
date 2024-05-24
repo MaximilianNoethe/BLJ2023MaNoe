@@ -1,4 +1,5 @@
 import exceptions.DenyListedPersonException;
+import exceptions.LeaseLengthCollisionException;
 import exceptions.MinorAgeException;
 
 import java.time.LocalDate;
@@ -20,15 +21,26 @@ public class VehicleRentalManager {
 
     private final int MINIMUM_AGE = 22;
 
-    public void createContract(Contract contract) throws DenyListedPersonException, MinorAgeException {
+    public void createContract(Contract contract) throws DenyListedPersonException, MinorAgeException, LeaseLengthCollisionException {
         Person person = contract.getPerson();
         if (denyList.contains(person)) {
             throw new DenyListedPersonException();
         } else if (person.getAge() < MINIMUM_AGE) {
             throw new MinorAgeException();
         } else {
+            checkCollision(contract.getVehicle(), contract.getStartDate(), contract.getEndDate());
             contracts.add(contract);
             System.out.println("Thank you for signing the contract!");
+        }
+    }
+
+    private void checkCollision(Vehicle vehicle, LocalDate startDate, LocalDate endDate) throws LeaseLengthCollisionException {
+        for (Contract validContracts : contracts) {
+            if (validContracts.getVehicle().equals(vehicle)) {
+                if (startDate.isAfter(validContracts.getStartDate()) && startDate.isBefore(validContracts.getEndDate()) || endDate.isAfter(validContracts.getStartDate()) && endDate.isBefore(validContracts.getEndDate()) || startDate.equals(validContracts.getStartDate()) || endDate.equals(validContracts.getEndDate())) {
+                    throw new LeaseLengthCollisionException();
+                }
+            }
         }
     }
 
