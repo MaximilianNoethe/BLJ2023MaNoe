@@ -47,15 +47,15 @@ public class VehicleRentalManager {
         }
     }
 
-    private boolean checkCollision(Vehicle vehicle, LocalDate startDate, LocalDate endDate) throws LeaseLengthCollisionException {
+    private boolean checkCollision(Vehicle vehicle, LocalDate startDate, LocalDate endDate) {
         for (Contract validContracts : contracts) {
             if (validContracts.getVehicle().equals(vehicle)) {
                 if (startDate.isAfter(validContracts.getStartDate()) && startDate.isBefore(validContracts.getEndDate()) || endDate.isAfter(validContracts.getStartDate()) && endDate.isBefore(validContracts.getEndDate()) || startDate.equals(validContracts.getStartDate()) || endDate.equals(validContracts.getEndDate())) {
-                    throw new LeaseLengthCollisionException();
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
 }
