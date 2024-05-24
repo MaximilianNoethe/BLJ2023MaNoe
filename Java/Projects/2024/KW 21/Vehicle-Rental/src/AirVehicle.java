@@ -1,4 +1,4 @@
-public class AirVehicle extends Vehicle{
+public class AirVehicle extends Vehicle {
     private String driveType;
 
 

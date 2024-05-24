@@ -16,7 +16,7 @@ public class Starter {
         //Car testCar2 = new Car()
 
         // Person 1
-        Person testPerson = new Person(LocalDate.of(2007, 4, 24),"Aryan");
+        Person testPerson = new Person(LocalDate.of(2007, 4, 24), "Aryan");
         vrm.addPersonToCustomerList(testPerson);
         //vrm.addPersonToDenyList(testPerson);
 
@@ -30,7 +30,7 @@ public class Starter {
 
 
         // Person 2
-        Person testPerson2 = new Person(LocalDate.of(2000, 1,16), "Max");
+        Person testPerson2 = new Person(LocalDate.of(2000, 1, 16), "Max");
         vrm.addPersonToCustomerList(testPerson2);
 
         // Contractinfos
