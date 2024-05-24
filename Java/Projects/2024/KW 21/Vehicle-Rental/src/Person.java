@@ -1,13 +1,12 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Person {
     private LocalDate birthYear;
-    private int age;
     private String name;
 
     public Person(LocalDate birthYear, String name) {
         this.birthYear = birthYear;
-
         this.name = name;
     }
 
@@ -16,7 +15,7 @@ public class Person {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(birthYear, LocalDate.now()).getYears();
     }
 
     public String getName() {
