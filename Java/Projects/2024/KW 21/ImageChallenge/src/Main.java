@@ -6,10 +6,6 @@ public class Main {
         ImageHandler ih = new ImageHandler();
 
 
-        try {
-            ih.readAndWriteImage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        ih.noiseImage();
     }
 }
