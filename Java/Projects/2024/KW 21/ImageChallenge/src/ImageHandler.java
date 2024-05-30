@@ -9,7 +9,7 @@ public class ImageHandler {
     Noise n = new Noise();
     private BufferedImage image;
 
-    private double noisePercentage = 0.55;
+    private double noisePercentage = 0.7;
 
     private String inputPath = "C:\\Users\\sussy\\Downloads\\Aryan_Bisen.jpg";
     private String outputPathNoised = "C:\\Users\\sussy\\Downloads\\Aryan_Bisen_Noisy.png";
@@ -115,10 +115,4 @@ public class ImageHandler {
         int height = image.getHeight();
         return 0 <= x && x < width && 0 <= y && y < height;
     }
-
-    public int getRGB(int r, int g, int b) {
-        return (r << 16) | (g << 8) | b;
-    }
-
-
 }
