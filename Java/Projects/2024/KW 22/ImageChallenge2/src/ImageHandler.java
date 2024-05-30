@@ -2,15 +2,17 @@ import javax.imageio.ImageIO;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ImageHandler {
 
-    private String outputPath = "C:\\Users\\sussy\\Downloads\\Aryan_Bisen_Gray.jpg";
+    private String outputPathGray = "C:\\Users\\sussy\\Downloads\\Aryan_Bisen_Gray.jpg";
 
-    private String DEFAULT_ASCII_CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+    public String DEFAULT_ASCII_CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
 
     public void colorToGray(String path) throws IOException {
         try {
@@ -21,7 +23,7 @@ public class ImageHandler {
             ColorConvertOp grayScaleConversionOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null); // ColorConvertOp is used to convert color into gray
 
             grayScaleConversionOp.filter(image, grayImg); // Executes the conversion with image as input and grayImg as output
-            ImageIO.write(grayImg, "png", new File(outputPath));
+            ImageIO.write(grayImg, "png", new File(outputPathGray));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -53,9 +55,38 @@ public class ImageHandler {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        System.out.println(grayScale);
-
         return grayScale;
+    }
+
+    public void convertToAscii(String path, String asciiChars, String outputPathTxt) {
+        StringBuilder asciiArt = new StringBuilder();
+
+        try {
+            File file = new File(path);
+            BufferedImage image = ImageIO.read(file);
+
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            ArrayList<Integer> grayScale = getGrayScale(path);
+            int asciiLeng = asciiChars.length();
+
+            int index = 0;
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    int gray = grayScale.get(index++);
+                    int charIndex = (gray * (asciiLeng - 1)) / 255;
+                    asciiArt.append(asciiChars.charAt(charIndex));
+                }
+                asciiArt.append("\n");
+            }
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPathTxt))) {
+                writer.write(asciiArt.toString());
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
