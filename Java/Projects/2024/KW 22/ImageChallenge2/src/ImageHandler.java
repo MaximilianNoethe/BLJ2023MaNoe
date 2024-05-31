@@ -14,7 +14,11 @@ public class ImageHandler {
 
     public String DEFAULT_ASCII_CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
 
-    public void colorToGray(String path) throws IOException {
+    public String SECOND_ASCII_CHARS = "█▓▒░ ";
+
+    public String CHAR_SCALE = SECOND_ASCII_CHARS;
+
+    public BufferedImage colorToGray(String path) throws IOException {
         try {
             File file = new File(path);
             BufferedImage image = ImageIO.read(file);
@@ -24,6 +28,8 @@ public class ImageHandler {
 
             grayScaleConversionOp.filter(image, grayImg); // Executes the conversion with image as input and grayImg as output
             ImageIO.write(grayImg, "png", new File(outputPathGray));
+
+            return grayImg;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -31,6 +37,7 @@ public class ImageHandler {
 
     }
 
+    /*
     public ArrayList<Integer> getGrayScale(String path) throws IOException {
         ArrayList<Integer> grayScale = new ArrayList<>();
         try {
@@ -56,26 +63,24 @@ public class ImageHandler {
             throw new RuntimeException(e);
         }
         return grayScale;
-    }
+    }*/
 
     public void convertToAscii(String path, String asciiChars, String outputPathTxt) {
         StringBuilder asciiArt = new StringBuilder();
 
         try {
-            File file = new File(path);
-            BufferedImage image = ImageIO.read(file);
 
-            int width = image.getWidth();
-            int height = image.getHeight();
+            BufferedImage grayImg = colorToGray(path);
 
-            ArrayList<Integer> grayScale = getGrayScale(path);
+            int width = grayImg.getWidth();
+            int height = grayImg.getHeight();
+
             int asciiLeng = asciiChars.length();
 
-            int index = 0;
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    int gray = grayScale.get(index++);
-                    int charIndex = (gray * (asciiLeng - 1)) / 255;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    int gray = grayImg.getRGB(x, y) & 0xFF;
+                    int charIndex = (gray * (asciiLeng - 1)) / 255; // Gets the grayscale directly from the gray picture
                     asciiArt.append(asciiChars.charAt(charIndex));
                 }
                 asciiArt.append("\n");
