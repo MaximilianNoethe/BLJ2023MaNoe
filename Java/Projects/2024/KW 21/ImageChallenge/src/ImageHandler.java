@@ -56,7 +56,7 @@ public class ImageHandler {
                 }
             }
             ImageIO.write(noisedImage, "png", new File(outputPathDenoised));
-            System.out.println("Ouf, lets hope the damage isn't that big.");
+            System.out.println("\nOuf, lets hope the damage isn't that big.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
