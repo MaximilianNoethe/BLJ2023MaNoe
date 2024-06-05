@@ -52,7 +52,6 @@ public class Game {
             currentPos.y += 1;
             gameField[currentPos.y][currentPos.x] = 2;
         } else {
-
             System.out.println("You can't pass the wall!!");
         }
     }
@@ -78,7 +77,6 @@ public class Game {
             currentPos.x += 1;
             gameField[currentPos.y][currentPos.x] = 2;
         } else {
-
             System.out.println("You can't pass the wall!!");
         }
     }
