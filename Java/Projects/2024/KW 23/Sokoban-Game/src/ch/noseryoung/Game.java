@@ -45,10 +45,12 @@ public class Game {
     }
 
     public void checkCheckpoints() {
-        if (checkPoints.contains(new Point(currentPos.x, currentPos.y))) {
-            gameField[currentPos.x][currentPos.y] = 4;
-        } else {
-            gameField[currentPos.x][currentPos.y] = 0;
+        Point prevPoint = new Point(currentPos);
+        gameField[prevPoint.x][prevPoint.y] = 0;
+        for (int i = 0; i < checkPoints.size(); i++) {
+            if (prevPoint.x == checkPoints.get(i).x && prevPoint.y == checkPoints.get(i).y) {
+                gameField[currentPos.x][currentPos.y] = 4;
+            }
         }
     }
 
@@ -56,14 +58,13 @@ public class Game {
         if (gameField[currentPos.x + horizontal][currentPos.y + vertical] == 1) {
             System.out.println("You can't go through this wall!");
         } else {
-
-            checkCheckpoints();
             if (gameField[currentPos.x + horizontal][currentPos.y + vertical] == 3) {
                 if (!moveBox(vertical, horizontal)) {
                     return;
                 }
             }
 
+            checkCheckpoints();
             currentPos.x += horizontal;
             currentPos.y += vertical;
             gameField[currentPos.x][currentPos.y] = 2;
@@ -87,7 +88,18 @@ public class Game {
 
     public void resetField() {
         System.out.println("ESC");
-        gameField = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 1, 1, 1, 1, 1, 0, 0}, {0, 1, 1, 1, 0, 0, 0, 1, 0, 0}, {0, 1, 4, 2, 3, 0, 0, 1, 0, 0}, {0, 1, 1, 1, 0, 3, 4, 1, 0, 0}, {0, 1, 4, 1, 1, 3, 0, 1, 0, 0}, {0, 1, 0, 1, 0, 4, 0, 1, 1, 0}, {0, 1, 3, 0, 3, 3, 3, 4, 1, 0}, {0, 1, 0, 0, 0, 4, 0, 0, 1, 0}, {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+        gameField = new int[][]{
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 1, 1, 1, 1, 0, 0},
+                {0, 1, 1, 1, 0, 0, 0, 1, 0, 0},
+                {0, 1, 4, 2, 3, 0, 0, 1, 0, 0},
+                {0, 1, 1, 1, 0, 3, 4, 1, 0, 0},
+                {0, 1, 4, 1, 1, 3, 0, 1, 0, 0},
+                {0, 1, 0, 1, 0, 4, 0, 1, 1, 0},
+                {0, 1, 3, 4, 3, 3, 3, 4, 1, 0},
+                {0, 1, 0, 0, 0, 4, 0, 0, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
         checkPoints.clear();
 
         for (int y = 0; y < getColCount(); y++) {
