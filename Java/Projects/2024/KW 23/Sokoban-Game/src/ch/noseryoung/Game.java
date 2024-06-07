@@ -14,71 +14,80 @@ public class Game {
 
     public void moveUp() {
         System.out.println("UP");
-        if (currentPos.y > 0 && gameField[currentPos.y - 1][currentPos.x] != 1) {
-            checkCheckpoints();
-            currentPos.y -= 1;
-            gameField[currentPos.y][currentPos.x] = 2;
-        } else {
-            System.out.println("You can't pass the wall!!");
-        }
+
+        move(0, -1);
+
+
     }
 
     public void moveDown() {
         System.out.println("DOWN");
-        if (currentPos.y < getColCount() - 1 && gameField[currentPos.y + 1][currentPos.x] != 1) {
-            checkCheckpoints();
-            currentPos.y += 1;
-            gameField[currentPos.y][currentPos.x] = 2;
-        } else {
-            System.out.println("You can't pass the wall!!");
-        }
+
+        move(0, 1);
+
+
     }
 
     public void moveLeft() {
         System.out.println("LEFT");
-        if (currentPos.x > 0 && gameField[currentPos.y][currentPos.x - 1] != 1) {
-            checkCheckpoints();
-            currentPos.x -= 1;
-            gameField[currentPos.y][currentPos.x] = 2;
-        } else {
-            System.out.println("You can't pass the wall!!");
-        }
+
+        move(-1, 0);
+
+
     }
 
     public void moveRight() {
         System.out.println("RIGHT");
-        if (currentPos.x < getRowCount() - 1 && gameField[currentPos.y][currentPos.x + 1] != 1) {
-            checkCheckpoints();
-            currentPos.x += 1;
-            gameField[currentPos.y][currentPos.x] = 2;
-        } else {
-            System.out.println("You can't pass the wall!!");
-        }
+
+        move(1, 0);
+
+
     }
 
     public void checkCheckpoints() {
         if (checkPoints.contains(new Point(currentPos.x, currentPos.y))) {
-            gameField[currentPos.y][currentPos.x] = 4;
+            gameField[currentPos.x][currentPos.y] = 4;
         } else {
-            gameField[currentPos.y][currentPos.x] = 0;
+            gameField[currentPos.x][currentPos.y] = 0;
+        }
+    }
+
+    public void move(int vertical, int horizontal) {
+        if (gameField[currentPos.x + horizontal][currentPos.y + vertical] == 1) {
+            System.out.println("You can't go through this wall!");
+        } else {
+
+            checkCheckpoints();
+            if (gameField[currentPos.x + horizontal][currentPos.y + vertical] == 3) {
+                if (!moveBox(vertical, horizontal)) {
+                    return;
+                }
+            }
+
+            currentPos.x += horizontal;
+            currentPos.y += vertical;
+            gameField[currentPos.x][currentPos.y] = 2;
+        }
+    }
+
+
+    public boolean moveBox(int vertical, int horizontal) {
+        int nextX = currentPos.x + (2 * horizontal);
+        int nextY = currentPos.y + (2 * vertical);
+
+        if (gameField[nextX][nextY] == 1 || gameField[nextX][nextY] == 3) {
+            System.out.println("You can't move this box.");
+            return false;
+        } else {
+            gameField[nextX][nextY] = 3;
+            System.out.println("Box has been moved");
+            return true;
         }
     }
 
     public void resetField() {
         System.out.println("ESC");
-        gameField = new int[][]{
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 1, 1, 1, 1, 1, 0, 0},
-                {0, 1, 1, 1, 0, 0, 0, 1, 0, 0},
-                {0, 1, 4, 2, 3, 0, 0, 1, 0, 0},
-                {0, 1, 1, 1, 0, 3, 4, 1, 0, 0},
-                {0, 1, 4, 1, 1, 3, 0, 1, 0, 0},
-                {0, 1, 0, 1, 0, 4, 0, 1, 1, 0},
-                {0, 1, 3, 0, 3, 3, 3, 4, 1, 0},
-                {0, 1, 0, 0, 0, 4, 0, 0, 1, 0},
-                {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-        };
+        gameField = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 1, 1, 1, 1, 1, 0, 0}, {0, 1, 1, 1, 0, 0, 0, 1, 0, 0}, {0, 1, 4, 2, 3, 0, 0, 1, 0, 0}, {0, 1, 1, 1, 0, 3, 4, 1, 0, 0}, {0, 1, 4, 1, 1, 3, 0, 1, 0, 0}, {0, 1, 0, 1, 0, 4, 0, 1, 1, 0}, {0, 1, 3, 0, 3, 3, 3, 4, 1, 0}, {0, 1, 0, 0, 0, 4, 0, 0, 1, 0}, {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
         checkPoints.clear();
 
         for (int y = 0; y < getColCount(); y++) {
@@ -87,7 +96,7 @@ public class Game {
                     currentPos.x = x;
                     currentPos.y = y;
                 } else if (gameField[y][x] == 4) {
-                    checkPoints.add(new Point(x, y));
+                    checkPoints.add(new Point(y, x));
                 }
             }
         }
