@@ -82,8 +82,32 @@ public class Game {
         } else {
             gameField[nextX][nextY] = 3;
             System.out.println("Box has been moved");
+
+
+            boolean hasWon = true;
+            for (int y = 0; y < getColCount(); y++) {
+                for (int x = 0; x < getRowCount(); x++) {
+                    if (4 == gameField[y][x]) {
+                        hasWon = false;
+                    }
+
+                }
+            }
+
+            if (hasWon == true) {
+                System.out.println("""
+                        *************************************
+                        CONGRATS YOU WON THE SOKOBAN-GAME
+                        *************************************
+                        """);
+
+                resetField();
+            }
+
             return true;
         }
+
+
     }
 
     public void resetField() {
