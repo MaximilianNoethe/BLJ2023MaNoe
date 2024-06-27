@@ -9,7 +9,14 @@ public class Game {
     private int[][] gameField;
 
     public Game() {
-        resetField();
+
+        initializePos();
+    }
+
+
+    public Game(int[][] gameField) {
+        this.gameField = gameField;
+        initializePos();
     }
 
     public void moveUp() {
@@ -55,6 +62,14 @@ public class Game {
     }
 
     public void move(int vertical, int horizontal) {
+        int newX = currentPos.x + horizontal;
+        int newY = currentPos.y + vertical;
+
+        if (newX < 0 || newX > getRowCount() || newY < 0 || newY > getColCount()) {
+            System.out.println("Out of Bounds");
+            return;
+        }
+
         if (gameField[currentPos.x + horizontal][currentPos.y + vertical] == 1) {
             System.out.println("You can't go through this wall!");
         } else {
@@ -110,6 +125,20 @@ public class Game {
 
     }
 
+    private void initializePos() {
+        for (int y = 0; y < getColCount(); y++) {
+            for (int x = 0; x < getRowCount(); x++) {
+                if (gameField[y][x] == 2) {
+                    currentPos.x = x;
+                    currentPos.y = y;
+                } else if (gameField[y][x] == 4) {
+                    checkPoints.add(new Point(y, x));
+                }
+            }
+        }
+
+    }
+
     public void resetField() {
         System.out.println("ESC");
         gameField = new int[][]{
@@ -126,16 +155,7 @@ public class Game {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
         checkPoints.clear();
 
-        for (int y = 0; y < getColCount(); y++) {
-            for (int x = 0; x < getRowCount(); x++) {
-                if (gameField[y][x] == 2) {
-                    currentPos.x = x;
-                    currentPos.y = y;
-                } else if (gameField[y][x] == 4) {
-                    checkPoints.add(new Point(y, x));
-                }
-            }
-        }
+        initializePos();
     }
 
     public int[][] getField() {
@@ -151,7 +171,4 @@ public class Game {
     }
 
 
-    public Game(int[][] gameField) {
-        this.gameField = gameField;
-    }
 }
