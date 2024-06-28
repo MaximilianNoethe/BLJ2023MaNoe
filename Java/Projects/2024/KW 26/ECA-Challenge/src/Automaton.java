@@ -104,17 +104,21 @@ public class Automaton {
 
     public String getBinaryRule() {
         // No exceptions, implement this method using only a single line of code
+        return rule;
     }
 
     public int getIntegerRule() {
         // No exceptions, implement this method using only a single line of code
+        return Integer.parseInt(rule);
     }
 
     public String getCurrentGeneration() {
         // No exceptions, implement this method using only a single line of code
+        return currentGeneration;
     }
 
     public List<String> getHistory() {
         // No exceptions, implement this method using only a single line of code
+        return history;
     }
 }
