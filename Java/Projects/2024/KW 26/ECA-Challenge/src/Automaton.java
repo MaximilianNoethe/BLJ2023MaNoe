@@ -67,9 +67,7 @@ public class Automaton {
      * @return a String representing the next generation.
      */
     public String nextGeneration() {
-        // EXTRA CHALLENGE: Implement this method using no more than 12 lines of code
-
-
+        // EXTRA CHALLENGE: Implement this method using no more than 12 lines of code+
     }
 
     /**
@@ -94,12 +92,6 @@ public class Automaton {
     public void printHistory(char state0Char, char state1Char) {
         // EXTRA CHALLENGE: Implement this method using no more than 2 lines of code
         history.forEach(string -> System.out.println(string.replace('0', state0Char).replace('1', state1Char)));
-/*
-        for (String string : history) {
-            System.out.println(string.replace('0', state0Char).replace('1', state1Char));
-        }
-
- */
     }
 
     public String getBinaryRule() {
@@ -109,7 +101,7 @@ public class Automaton {
 
     public int getIntegerRule() {
         // No exceptions, implement this method using only a single line of code
-        return Integer.parseInt(rule);
+        return Integer.parseInt(rule, 2);
     }
 
     public String getCurrentGeneration() {
