@@ -39,6 +39,7 @@ public class Automaton {
         }
         this.rule = rule;
         this.currentGeneration = initialGeneration;
+        this.history = new ArrayList<>();
     }
 
     /**
@@ -55,7 +56,7 @@ public class Automaton {
      */
     public Automaton(int rule, String initialGeneration) {
         // EXTRA CHALLENGE: Implement this constructor using no more than 1 line of code
-        this(Integer.toString(rule), initialGeneration);
+        this(String.format("%8s", Integer.toBinaryString(rule)).replace(' ', '0'), initialGeneration);
     }
 
     /**
@@ -67,7 +68,19 @@ public class Automaton {
      * @return a String representing the next generation.
      */
     public String nextGeneration() {
-        // EXTRA CHALLENGE: Implement this method using no more than 12 lines of code+
+        // EXTRA CHALLENGE: Implement this method using no more than 12 lines of code
+        StringBuilder nextGen = new StringBuilder();
+        for (int i = 0; i < currentGeneration.length(); i++) {
+            String neighbourhood = "" +
+                    currentGeneration.charAt((i - 1 + currentGeneration.length()) % currentGeneration.length()) +
+                    currentGeneration.charAt(i) +
+                    currentGeneration.charAt((i + 1) % currentGeneration.length());
+            int index = Integer.parseInt(neighbourhood, 2);
+            nextGen.append(rule.charAt(7 - index));
+        }
+        currentGeneration = nextGen.toString();
+        history.add(currentGeneration);
+        return currentGeneration;
     }
 
     /**
@@ -79,8 +92,10 @@ public class Automaton {
      */
     public void run(int numGenerations) {
         // EXTRA CHALLENGE: Implement this method using no more than 3 lines of code
+        for (int i = 0; i < numGenerations; i++) {
+            nextGeneration();
+        }
     }
-
     /**
      * This method prints all generations that were recorded up until this point
      * chronologically in the console. The output can be formatted using the
