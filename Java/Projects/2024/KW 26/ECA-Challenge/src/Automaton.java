@@ -93,6 +93,13 @@ public class Automaton {
      */
     public void printHistory(char state0Char, char state1Char) {
         // EXTRA CHALLENGE: Implement this method using no more than 2 lines of code
+        history.forEach(string -> System.out.println(string.replace('0', state0Char).replace('1', state1Char)));
+/*
+        for (String string : history) {
+            System.out.println(string.replace('0', state0Char).replace('1', state1Char));
+        }
+
+ */
     }
 
     public String getBinaryRule() {
