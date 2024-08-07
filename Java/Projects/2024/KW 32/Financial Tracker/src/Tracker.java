@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 
 public class Tracker {
-    public ArrayList<Double> expenses;
-    public ArrayList<Double> incomes;
-    public double balance;
+    public ArrayList<Transaction> expenses = new ArrayList<Transaction>();
+    public ArrayList<Transaction> incomes = new ArrayList<Transaction>();
+    public double balance = 500;
 
-    public Tracker(ArrayList<Double> expenses, ArrayList<Double> incomes, double balance) {
-        this.expenses = expenses;
-        this.incomes = incomes;
-        this.balance = 0;
+    public Tracker() {
+
     }
 
-    public void addExpense(double expense) {
-        expenses.add(expense);
+    public void addExpense(String name, double expense) {
+        Transaction transaction = new Transaction(name, expense);
+        expenses.add(transaction);
         balance -= expense;
     }
 
-    public void addIncome(double income) {
-        incomes.add(income);
+    public void addIncome(String name, double income) {
+        Transaction transaction = new Transaction(name, income);
+        incomes.add(transaction);
         balance += income;
     }
 
@@ -25,10 +25,24 @@ public class Tracker {
         return balance;
     }
 
-    public ArrayList<Double> getExpenses(){
+    public ArrayList<Transaction> getDetailedExpenses() {
         return expenses;
     }
-    public ArrayList<Double> getIncomes(){
+
+    public ArrayList<Transaction> getDetailedIncomes() {
         return incomes;
+    }
+
+    public double getTotalIncomesOrExpenses(ArrayList<Transaction> list) {
+        if (list == null){
+            throw new IllegalArgumentException("List cannot be null.");
+        }
+
+        double sum = 0;
+
+        for (Transaction transaction : list) {
+            sum += transaction.getValue();
+        }
+        return sum;
     }
 }
