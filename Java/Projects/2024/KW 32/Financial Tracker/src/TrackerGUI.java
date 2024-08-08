@@ -15,11 +15,11 @@ public class TrackerGUI {
         lb1 = new JLabel("Balance: " + t.getBalance());
         lb1.setBounds(315, 30, 150, 20);
 
-        lb2 = new JLabel("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
+        lb2 = new JLabel("Total Income: " + t.getTotalTransaction(t.incomes));
         lb2.setBounds(15, 30, 200, 20);
 
 
-        lb3 = new JLabel("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
+        lb3 = new JLabel("Total Expense: " + t.getTotalTransaction(t.expenses));
         lb3.setBounds(165, 30, 200, 20);
 
         // todo... Label for name and amount of transaction
@@ -60,7 +60,7 @@ public class TrackerGUI {
                     t.addIncome(name, value);
 
                     lb1.setText("Balance: " + t.getBalance());
-                    lb2.setText("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
+                    lb2.setText("Total Income: " + t.getTotalTransaction(t.incomes));
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your income. New Balance: " + t.getBalance());
 
@@ -80,7 +80,7 @@ public class TrackerGUI {
                     t.addExpense(name, value);
 
                     lb1.setText("Balance: " + t.getBalance());
-                    lb3.setText("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
+                    lb3.setText("Total Expense: " + t.getTotalTransaction(t.expenses));
 
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your expense. New Balance: " + t.getBalance());

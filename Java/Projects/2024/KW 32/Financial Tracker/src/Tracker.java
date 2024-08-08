@@ -33,7 +33,7 @@ public class Tracker {
         return incomes;
     }
 
-    public double getTotalIncomesOrExpenses(ArrayList<Transaction> list) {
+    public double getTotalTransaction(ArrayList<Transaction> list) {
         if (list == null){
             throw new IllegalArgumentException("List cannot be null.");
         }
