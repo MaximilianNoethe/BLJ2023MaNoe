@@ -138,7 +138,7 @@ public class TrackerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == button3) {
-                    DetailedGUI detailedWindow = new DetailedGUI();
+                    new DetailedGUI(t);
                 }
             }
         });
