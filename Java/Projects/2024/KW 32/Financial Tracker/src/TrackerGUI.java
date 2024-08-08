@@ -1,29 +1,28 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class TrackerGUI {
+    JFrame frame = new JFrame("Finance Tracker");
     Tracker t = new Tracker();
     JTextField tf1, tf2, tf3, tf4;
-    JLabel lb, lb1, lb2, lb3, lb4;
+    JLabel lb1, lb2, lb3;
     JButton button1, button2, button3;
 
     public TrackerGUI() {
-        JFrame frame = new JFrame("Finance Tracker");
+        lb1 = new JLabel("Balance: " + t.getBalance());
+        lb1.setBounds(315, 30, 150, 20);
+
+        lb2 = new JLabel("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
+        lb2.setBounds(15, 30, 200, 20);
 
 
+        lb3 = new JLabel("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
+        lb3.setBounds(165, 30, 200, 20);
 
-        lb = new JLabel("Balance: " + t.getBalance());
-        lb.setBounds(315, 30, 150, 20);
-
-        lb1 = new JLabel("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
-        lb1.setBounds(15, 30, 200, 20);
-
-
-        lb2 = new JLabel("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
-        lb2.setBounds(165, 30, 200, 20);
-
-// todo... Label for name and amount of transaction
+        // todo... Label for name and amount of transaction
         tf1 = new JTextField();
         tf2 = new JTextField();
         tf1.setBounds(165, 150, 90, 20);
@@ -39,6 +38,18 @@ public class TrackerGUI {
         button2.setBounds(15, 175, 110, 20);
 
 
+        button3 = new JButton("New Window");
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == button3) {
+                    DetailedGUI detailedWindow = new DetailedGUI();
+                }
+            }
+        });
+
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,8 +59,8 @@ public class TrackerGUI {
                     double value = Double.parseDouble(valueText);
                     t.addIncome(name, value);
 
-                    lb.setText("Balance: " + t.getBalance());
-                    lb1.setText("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
+                    lb1.setText("Balance: " + t.getBalance());
+                    lb2.setText("Total Income: " + t.getTotalIncomesOrExpenses(t.incomes));
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your income. New Balance: " + t.getBalance());
 
@@ -68,8 +79,8 @@ public class TrackerGUI {
                     double value = Double.parseDouble(valueText);
                     t.addExpense(name, value);
 
-                    lb.setText("Balance: " + t.getBalance());
-                    lb2.setText("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
+                    lb1.setText("Balance: " + t.getBalance());
+                    lb3.setText("Total Expense: " + t.getTotalIncomesOrExpenses(t.expenses));
 
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your expense. New Balance: " + t.getBalance());
@@ -88,20 +99,36 @@ public class TrackerGUI {
         });*/
 
 
-        frame.add(button1);
-        frame.add(button2);
-        //frame.add(button3);
-        frame.add(lb);
-        frame.add(lb1);
         frame.add(lb2);
+        frame.add(lb3);
+        frame.add(lb1);
+        frame.add(button1);
         frame.add(tf1);
         frame.add(tf2);
+        frame.add(button2);
         frame.add(tf3);
         frame.add(tf4);
+        frame.add(button3);
 
-        frame.setSize(450, 400);
-        frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(450, 400);
+        frame.setLayout(new GridLayout(0, 3));
         frame.setVisible(true);
+
+       /* int a = JOptionPane.showConfirmDialog(frame, "You are now closing this window.");
+
+        if (a == JOptionPane.YES_OPTION){
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }*/
     }
+/*
+    public void windowClosing(WindowEvent e){
+
+        int a = JOptionPane.showConfirmDialog(frame, "You are now closing this window.");
+
+        if (a == JOptionPane.YES_OPTION){
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+
+    }*/
 }
