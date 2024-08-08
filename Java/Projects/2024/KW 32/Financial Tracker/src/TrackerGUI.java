@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class TrackerGUI {
     JFrame frame = new JFrame("Finance Tracker");
@@ -13,43 +11,86 @@ public class TrackerGUI {
 
     public TrackerGUI() {
         lb1 = new JLabel("Balance: " + t.getBalance());
-        lb1.setBounds(315, 30, 150, 20);
-
         lb2 = new JLabel("Total Income: " + t.getTotalTransaction(t.incomes));
-        lb2.setBounds(15, 30, 200, 20);
-
-
         lb3 = new JLabel("Total Expense: " + t.getTotalTransaction(t.expenses));
-        lb3.setBounds(165, 30, 200, 20);
+
 
         // todo... Label for name and amount of transaction
         tf1 = new JTextField();
-        tf2 = new JTextField();
-        tf1.setBounds(165, 150, 90, 20);
-        tf2.setBounds(265, 150, 90, 20);
-        button1 = new JButton("Add income");
-        button1.setBounds(15, 150, 110, 20);
-
-        tf3 = new JTextField();
-        tf4 = new JTextField();
-        tf3.setBounds(165, 175, 90, 20);
-        tf4.setBounds(265, 175, 90, 20);
-        button2 = new JButton("Add expense");
-        button2.setBounds(15, 175, 110, 20);
-
-
-        button3 = new JButton("New Window");
-
-        button3.addActionListener(new ActionListener() {
+        tf1.setText("Income name");
+        tf1.addFocusListener(new FocusListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == button3) {
-                    DetailedGUI detailedWindow = new DetailedGUI();
+            public void focusGained(FocusEvent e) {
+                if (tf1.getText().equals("Income name")) {
+                    tf1.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (tf1.getText().equals("")) {
+                    tf1.setText("Income name");
                 }
             }
         });
 
 
+        tf2 = new JTextField();
+        tf2.setText("Income value");
+        tf2.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (tf2.getText().equals("Income value")) {
+                    tf2.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (tf2.getText().equals("")) {
+                    tf2.setText("Income value");
+                }
+            }
+        });
+
+        tf3 = new JTextField();
+        tf3.setText("Expense name");
+        tf3.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (tf3.getText().equals("Expense name")) {
+                    tf3.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (tf3.getText().equals("")) {
+                    tf3.setText("Expense name");
+                }
+            }
+        });
+
+        tf4 = new JTextField();
+        tf4.setText("Expense value");
+        tf4.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (tf4.getText().equals("Expense value")) {
+                    tf4.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (tf4.getText().equals("")) {
+                    tf4.setText("Expense value");
+                }
+            }
+        });
+
+
+        button1 = new JButton("Add income");
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,6 +111,7 @@ public class TrackerGUI {
             }
         });
 
+        button2 = new JButton("Add expense");
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,12 +133,15 @@ public class TrackerGUI {
             }
         });
 
-        /*button3.addActionListener(new ActionListener() {
+        button3 = new JButton("Details");
+        button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (e.getSource() == button3) {
+                    DetailedGUI detailedWindow = new DetailedGUI();
+                }
             }
-        });*/
+        });
 
 
         frame.add(lb2);
