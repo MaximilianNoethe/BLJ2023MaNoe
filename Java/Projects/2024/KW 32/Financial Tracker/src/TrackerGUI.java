@@ -6,17 +6,25 @@ public class TrackerGUI {
     JFrame frame = new JFrame("Finance Tracker");
     Tracker t = new Tracker();
     JTextField tf1, tf2, tf3, tf4;
-    JLabel lb1, lb2, lb3;
+    JLabel lb1, lb2, lb3, placeholder1, placeholder2;
     JButton button1, button2, button3;
 
     public TrackerGUI() {
+        placeholder1 = new JLabel();
+        placeholder2 = new JLabel();
         lb1 = new JLabel("Balance: " + t.getBalance());
+        lb1.setFont(new Font(null, Font.PLAIN, 20));
+
         lb2 = new JLabel("Total Income: " + t.getTotalTransaction(t.incomes));
+        lb2.setFont(new Font(null, Font.PLAIN, 20));
+
         lb3 = new JLabel("Total Expense: " + t.getTotalTransaction(t.expenses));
+        lb3.setFont(new Font(null, Font.PLAIN, 20));
 
 
         // todo... Label for name and amount of transaction
         tf1 = new JTextField();
+        tf1.setFont(new Font(null, Font.PLAIN, 20));
         tf1.setText("Income name");
         tf1.addFocusListener(new FocusListener() {
             @Override
@@ -36,6 +44,7 @@ public class TrackerGUI {
 
 
         tf2 = new JTextField();
+        tf2.setFont(new Font(null, Font.PLAIN, 20));
         tf2.setText("Income value");
         tf2.addFocusListener(new FocusListener() {
             @Override
@@ -54,6 +63,7 @@ public class TrackerGUI {
         });
 
         tf3 = new JTextField();
+        tf3.setFont(new Font(null, Font.PLAIN, 20));
         tf3.setText("Expense name");
         tf3.addFocusListener(new FocusListener() {
             @Override
@@ -72,6 +82,7 @@ public class TrackerGUI {
         });
 
         tf4 = new JTextField();
+        tf4.setFont(new Font(null, Font.PLAIN, 20));
         tf4.setText("Expense value");
         tf4.addFocusListener(new FocusListener() {
             @Override
@@ -91,6 +102,7 @@ public class TrackerGUI {
 
 
         button1 = new JButton("Add income");
+        button1.setFont(new Font(null, Font.PLAIN, 20));
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,6 +124,7 @@ public class TrackerGUI {
         });
 
         button2 = new JButton("Add expense");
+        button2.setFont(new Font(null, Font.PLAIN, 20));
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -134,6 +147,7 @@ public class TrackerGUI {
         });
 
         button3 = new JButton("Details");
+        button3.setFont(new Font(null, Font.PLAIN, 20));
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -153,10 +167,12 @@ public class TrackerGUI {
         frame.add(button2);
         frame.add(tf3);
         frame.add(tf4);
+        frame.add(placeholder1);
         frame.add(button3);
+        frame.add(placeholder2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 400);
+        frame.setSize(650, 600);
         frame.setLayout(new GridLayout(0, 3));
         frame.setVisible(true);
 
