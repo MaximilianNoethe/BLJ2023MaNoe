@@ -14,4 +14,9 @@ public class Transaction {
     public double getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + value;
+    }
 }
