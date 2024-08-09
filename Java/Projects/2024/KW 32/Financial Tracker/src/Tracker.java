@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Tracker {
     public ArrayList<Transaction> expenses = new ArrayList<Transaction>();
     public ArrayList<Transaction> incomes = new ArrayList<Transaction>();
-    public double balance = 500;
+    public double balance = 0;
 
     public Tracker() {
 

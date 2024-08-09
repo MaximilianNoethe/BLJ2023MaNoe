@@ -101,7 +101,6 @@ public class TrackerGUI {
             }
         });
 
-
         addIncomeB = new JButton("Add income");
         addIncomeB.setFont(new Font(null, Font.PLAIN, fontsize));
         addIncomeB.addActionListener(new ActionListener() {
@@ -158,7 +157,6 @@ public class TrackerGUI {
             }
         });
 
-
         frame.add(totIncomeLB);
         frame.add(totExpenseLB);
         frame.add(balanceLB);
@@ -176,6 +174,5 @@ public class TrackerGUI {
         frame.setSize(850, 800);
         frame.setLayout(new GridLayout(0, 3));
         frame.setVisible(true);
-
     }
 }

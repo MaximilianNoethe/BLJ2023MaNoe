@@ -17,6 +17,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return name + ": " + value + "CHF.";
+        return name + ": " + value + "CHF";
     }
 }
