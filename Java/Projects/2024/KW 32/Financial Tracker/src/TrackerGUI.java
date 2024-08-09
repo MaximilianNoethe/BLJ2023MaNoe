@@ -5,115 +5,116 @@ import java.awt.event.*;
 public class TrackerGUI {
     private JFrame frame = new JFrame("Finance Tracker");
     private Tracker t = new Tracker();
-    private JTextField tf1, tf2, tf3, tf4;
-    private JLabel lb1, lb2, lb3, placeholder1, placeholder2;
-    private JButton button1, button2, button3;
+    private JTextField incomeNameTF, incomeValueTF, expenseNameTF, expenseValueTF;
+    private JLabel balanceLB, totIncomeLB, totExpenseLB, placeholder1, placeholder2;
+    private JButton addIncomeB, addExpenseB, detailsB;
+    private String currency = "CHF";
+    private int fontsize = 20;
 
     public TrackerGUI() {
         placeholder1 = new JLabel();
         placeholder2 = new JLabel();
-        lb1 = new JLabel("Balance: " + t.getBalance());
-        lb1.setFont(new Font(null, Font.PLAIN, 20));
+        balanceLB = new JLabel("Balance: " + t.getBalance() + currency);
+        balanceLB.setFont(new Font(null, Font.PLAIN, fontsize));
 
-        lb2 = new JLabel("Total Income: " + t.getTotalTransaction(t.incomes));
-        lb2.setFont(new Font(null, Font.PLAIN, 20));
+        totIncomeLB = new JLabel("Total Income: " + t.getTotalTransaction(t.incomes) + currency);
+        totIncomeLB.setFont(new Font(null, Font.PLAIN, fontsize));
 
-        lb3 = new JLabel("Total Expense: " + t.getTotalTransaction(t.expenses));
-        lb3.setFont(new Font(null, Font.PLAIN, 20));
+        totExpenseLB = new JLabel("Total Expense: " + t.getTotalTransaction(t.expenses) + currency);
+        totExpenseLB.setFont(new Font(null, Font.PLAIN, fontsize));
 
 
-        // todo... Label for name and amount of transaction
-        tf1 = new JTextField();
-        tf1.setFont(new Font(null, Font.PLAIN, 20));
-        tf1.setText("Income name");
-        tf1.addFocusListener(new FocusListener() {
+        incomeNameTF = new JTextField();
+        incomeNameTF.setFont(new Font(null, Font.PLAIN, fontsize));
+        incomeNameTF.setText("Income name");
+        incomeNameTF.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tf1.getText().equals("Income name")) {
-                    tf1.setText("");
+                if (incomeNameTF.getText().equals("Income name")) {
+                    incomeNameTF.setText("");
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (tf1.getText().equals("")) {
-                    tf1.setText("Income name");
+                if (incomeNameTF.getText().equals("")) {
+                    incomeNameTF.setText("Income name");
                 }
             }
         });
 
 
-        tf2 = new JTextField();
-        tf2.setFont(new Font(null, Font.PLAIN, 20));
-        tf2.setText("Income value");
-        tf2.addFocusListener(new FocusListener() {
+        incomeValueTF = new JTextField();
+        incomeValueTF.setFont(new Font(null, Font.PLAIN, fontsize));
+        incomeValueTF.setText("Income value");
+        incomeValueTF.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tf2.getText().equals("Income value")) {
-                    tf2.setText("");
+                if (incomeValueTF.getText().equals("Income value")) {
+                    incomeValueTF.setText("");
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (tf2.getText().equals("")) {
-                    tf2.setText("Income value");
+                if (incomeValueTF.getText().equals("")) {
+                    incomeValueTF.setText("Income value");
                 }
             }
         });
 
-        tf3 = new JTextField();
-        tf3.setFont(new Font(null, Font.PLAIN, 20));
-        tf3.setText("Expense name");
-        tf3.addFocusListener(new FocusListener() {
+        expenseNameTF = new JTextField();
+        expenseNameTF.setFont(new Font(null, Font.PLAIN, fontsize));
+        expenseNameTF.setText("Expense name");
+        expenseNameTF.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tf3.getText().equals("Expense name")) {
-                    tf3.setText("");
+                if (expenseNameTF.getText().equals("Expense name")) {
+                    expenseNameTF.setText("");
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (tf3.getText().equals("")) {
-                    tf3.setText("Expense name");
+                if (expenseNameTF.getText().equals("")) {
+                    expenseNameTF.setText("Expense name");
                 }
             }
         });
 
-        tf4 = new JTextField();
-        tf4.setFont(new Font(null, Font.PLAIN, 20));
-        tf4.setText("Expense value");
-        tf4.addFocusListener(new FocusListener() {
+        expenseValueTF = new JTextField();
+        expenseValueTF.setFont(new Font(null, Font.PLAIN, fontsize));
+        expenseValueTF.setText("Expense value");
+        expenseValueTF.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tf4.getText().equals("Expense value")) {
-                    tf4.setText("");
+                if (expenseValueTF.getText().equals("Expense value")) {
+                    expenseValueTF.setText("");
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (tf4.getText().equals("")) {
-                    tf4.setText("Expense value");
+                if (expenseValueTF.getText().equals("")) {
+                    expenseValueTF.setText("Expense value");
                 }
             }
         });
 
 
-        button1 = new JButton("Add income");
-        button1.setFont(new Font(null, Font.PLAIN, 20));
-        button1.addActionListener(new ActionListener() {
+        addIncomeB = new JButton("Add income");
+        addIncomeB.setFont(new Font(null, Font.PLAIN, fontsize));
+        addIncomeB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = tf1.getText();
-                String valueText = tf2.getText();
+                String name = incomeNameTF.getText();
+                String valueText = incomeValueTF.getText();
                 try {
                     double value = Double.parseDouble(valueText);
                     t.addIncome(name, value);
 
-                    lb1.setText("Balance: " + t.getBalance());
-                    lb2.setText("Total Income: " + t.getTotalTransaction(t.incomes));
+                    balanceLB.setText("Balance: " + t.getBalance());
+                    totIncomeLB.setText("Total Income: " + t.getTotalTransaction(t.incomes));
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your income. New Balance: " + t.getBalance());
 
@@ -123,19 +124,19 @@ public class TrackerGUI {
             }
         });
 
-        button2 = new JButton("Add expense");
-        button2.setFont(new Font(null, Font.PLAIN, 20));
-        button2.addActionListener(new ActionListener() {
+        addExpenseB = new JButton("Add expense");
+        addExpenseB.setFont(new Font(null, Font.PLAIN, fontsize));
+        addExpenseB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = tf3.getText();
-                String valueText = tf4.getText();
+                String name = expenseNameTF.getText();
+                String valueText = expenseValueTF.getText();
                 try {
                     double value = Double.parseDouble(valueText);
                     t.addExpense(name, value);
 
-                    lb1.setText("Balance: " + t.getBalance());
-                    lb3.setText("Total Expense: " + t.getTotalTransaction(t.expenses));
+                    balanceLB.setText("Balance: " + t.getBalance());
+                    totExpenseLB.setText("Total Expense: " + t.getTotalTransaction(t.expenses));
 
 
                     JOptionPane.showMessageDialog(frame, "Successfully added your expense. New Balance: " + t.getBalance());
@@ -146,50 +147,35 @@ public class TrackerGUI {
             }
         });
 
-        button3 = new JButton("Details");
-        button3.setFont(new Font(null, Font.PLAIN, 20));
-        button3.addActionListener(new ActionListener() {
+        detailsB = new JButton("Details");
+        detailsB.setFont(new Font(null, Font.PLAIN, fontsize));
+        detailsB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == button3) {
+                if (e.getSource() == detailsB) {
                     new DetailedGUI(t);
                 }
             }
         });
 
 
-        frame.add(lb2);
-        frame.add(lb3);
-        frame.add(lb1);
-        frame.add(button1);
-        frame.add(tf1);
-        frame.add(tf2);
-        frame.add(button2);
-        frame.add(tf3);
-        frame.add(tf4);
+        frame.add(totIncomeLB);
+        frame.add(totExpenseLB);
+        frame.add(balanceLB);
+        frame.add(addIncomeB);
+        frame.add(incomeNameTF);
+        frame.add(incomeValueTF);
+        frame.add(addExpenseB);
+        frame.add(expenseNameTF);
+        frame.add(expenseValueTF);
         frame.add(placeholder1);
-        frame.add(button3);
+        frame.add(detailsB);
         frame.add(placeholder2);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(650, 600);
+        frame.setSize(850, 800);
         frame.setLayout(new GridLayout(0, 3));
         frame.setVisible(true);
 
-       /* int a = JOptionPane.showConfirmDialog(frame, "You are now closing this window.");
-
-        if (a == JOptionPane.YES_OPTION){
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }*/
     }
-/*
-    public void windowClosing(WindowEvent e){
-
-        int a = JOptionPane.showConfirmDialog(frame, "You are now closing this window.");
-
-        if (a == JOptionPane.YES_OPTION){
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
-
-    }*/
 }
