@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class TrackerGUI {
-    JFrame frame = new JFrame("Finance Tracker");
-    Tracker t = new Tracker();
-    JTextField tf1, tf2, tf3, tf4;
-    JLabel lb1, lb2, lb3, placeholder1, placeholder2;
-    JButton button1, button2, button3;
+    private JFrame frame = new JFrame("Finance Tracker");
+    private Tracker t = new Tracker();
+    private JTextField tf1, tf2, tf3, tf4;
+    private JLabel lb1, lb2, lb3, placeholder1, placeholder2;
+    private JButton button1, button2, button3;
 
     public TrackerGUI() {
         placeholder1 = new JLabel();
