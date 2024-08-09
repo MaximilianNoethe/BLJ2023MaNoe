@@ -34,7 +34,7 @@ public class Tracker {
     }
 
     public double getTotalTransaction(ArrayList<Transaction> list) {
-        if (list == null){
+        if (list == null) {
             throw new IllegalArgumentException("List cannot be null.");
         }
 
